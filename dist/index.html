@@ -138,7 +138,9 @@
       position: relative; z-index: 1;
       width: 100%;
       display: flex; align-items: flex-end; justify-content: space-between;
-      padding: 0 60px 36px;
+      padding: 0 40px 36px;
+      max-width: 1200px;
+      margin: 0 auto;
       gap: 40px;
     }
     .hero-content {
@@ -303,7 +305,7 @@
     .stats-bar {
       background: #fff;
       border-bottom: 1px solid #eef0f6;
-      padding: 0 40px;
+      padding: 0;
     }
     .stats-inner {
       max-width: 1100px; margin: 0 auto;
@@ -328,12 +330,20 @@
     }
 
     /* â”€â”€ SECTIONS COMMON â”€â”€ */
-    section { padding: 80px 40px; }
+    section { padding: 80px 0; }
+    .section-inner,
     .sec-header, .cat-grid, .how-grid,
     .fleet-grid, .services-grid, .loc-grid,
-    .sec-title { max-width: 1280px; margin-left: auto; margin-right: auto; }
-    nav { max-width: 1280px; }
-    .booking-bar { max-width: 1200px; margin-left: auto; margin-right: auto; }
+    .sec-title, .section-label-wrap {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    nav { max-width: 1200px; }
+    .booking-bar { max-width: 1100px; margin-left: auto; margin-right: auto; }
+    .stats-inner { max-width: 1200px; margin: 0 auto; }
     .hero-inner { max-width: 1280px; margin-left: auto; margin-right: auto; width: 100%; }
     .sec-title {
       font-size: clamp(24px, 3vw, 36px);
@@ -847,7 +857,8 @@
       .mob-menu a { font-size: 15px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
 
       /* Sections */
-      section { padding: 44px 16px; }
+      section { padding: 44px 0; }
+      .sec-header, .cat-grid, .how-grid, .fleet-grid, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 16px; padding-right: 16px; }
 
       /* Hero â€“ taller on mobile so image is visible */
       #hero {
@@ -964,7 +975,8 @@
       .how-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
       .hero-content h1 { font-size: 28px; }
       .booking-bar { margin: 0 8px 16px; }
-      section { padding: 36px 14px; }
+      section { padding: 36px 0; }
+      .sec-header, .cat-grid, .how-grid, .fleet-grid, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 14px; padding-right: 14px; }
     }
   </style>
 </head>
