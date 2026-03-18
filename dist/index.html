@@ -972,7 +972,22 @@
       .how-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 100%; }
 
       /* Fleet */
-      .fleet-grid { grid-template-columns: 1fr; }
+      .fleet-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 16px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+      }
+      .fleet-grid::-webkit-scrollbar { height: 0; }
+      .fleet-grid { scrollbar-width: none; }
+      .car-card {
+        flex: 0 0 86%;
+        max-width: 86%;
+        scroll-snap-align: start;
+      }
 
       /* Services */
       .services-grid { grid-template-columns: 1fr; }
@@ -1005,6 +1020,10 @@
       .booking-bar { margin: 0 8px 16px; }
       section { padding: 36px 0; }
       .sec-header, .cat-grid, .how-grid, .fleet-grid, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 14px; padding-right: 14px; }
+      .car-card {
+        flex: 0 0 92%;
+        max-width: 92%;
+      }
     }
   </style>
 </head>
