@@ -729,40 +729,51 @@
         display: none; /* hide on small screens to reduce clutter */
       }
 
-      /* Booking Bar – compact horizontal on mobile */
+      /* Booking Bar – horizontal row on mobile like desktop */
       .booking-bar {
         margin: 0 10px 20px;
         border-radius: 16px;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: nowrap;
         padding: 6px;
-        gap: 2px;
+        gap: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
       }
+      .booking-bar::-webkit-scrollbar { display: none; }
       .booking-field {
-        padding: 11px 12px;
+        padding: 10px 12px;
         border-radius: 10px;
-        gap: 10px;
+        gap: 8px;
+        min-width: 130px;
+        flex: 1 0 130px;
       }
-      .booking-field + .booking-field::before { display: none; }
+      .booking-field + .booking-field::before {
+        display: block;
+        top: 20%; height: 60%;
+      }
       .booking-field-icon {
-        width: 32px; height: 32px;
-        font-size: 13px; border-radius: 9px;
+        width: 30px; height: 30px;
+        font-size: 12px; border-radius: 9px;
         flex-shrink: 0;
       }
-      .booking-field label { font-size: 9px; letter-spacing: .8px; }
+      .booking-field label { font-size: 9px; letter-spacing: .6px; }
       .booking-field-value, .booking-field input, .booking-field select {
-        font-size: 13px;
+        font-size: 12px;
       }
-      .booking-field-chevron { font-size: 10px; }
+      .booking-field-chevron { display: none; }
       .booking-search-btn {
-        width: 100%; padding: 13px;
-        justify-content: center;
+        flex: 0 0 auto;
+        padding: 0 16px;
         border-radius: 11px;
-        font-size: 14px;
-        margin-top: 2px;
+        font-size: 13px;
+        white-space: nowrap;
+        min-height: 48px;
       }
       .booking-dropdown {
-        min-width: calc(100vw - 44px);
-        left: 0; right: 0;
+        min-width: 260px;
+        left: 0;
         top: calc(100% + 8px);
       }
 
