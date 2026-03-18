@@ -976,6 +976,11 @@
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
+        overflow-y: hidden;
+        /* Prevent vertical page overscroll while interacting with the carousel */
+        touch-action: pan-x;
+        overscroll-behavior-x: contain;
+        overscroll-behavior-y: none;
         gap: 16px;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
