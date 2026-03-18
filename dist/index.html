@@ -729,52 +729,50 @@
         display: none; /* hide on small screens to reduce clutter */
       }
 
-      /* Booking Bar – horizontal row on mobile like desktop */
+      /* Booking Bar – 2x2 grid on mobile, everything visible */
       .booking-bar {
         margin: 0 10px 20px;
         border-radius: 16px;
         flex-direction: row;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         padding: 6px;
         gap: 0;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        overflow: visible;
       }
-      .booking-bar::-webkit-scrollbar { display: none; }
       .booking-field {
+        flex: 0 0 calc(50% - 0px);
         padding: 10px 12px;
         border-radius: 10px;
         gap: 8px;
-        min-width: 130px;
-        flex: 1 0 130px;
+        min-width: 0;
       }
-      .booking-field + .booking-field::before {
-        display: block;
-        top: 20%; height: 60%;
-      }
+      .booking-field + .booking-field::before { display: none; }
+      .booking-field:nth-child(1) { border-right: 1px solid #e8eaf2; border-bottom: 1px solid #e8eaf2; border-radius: 10px 0 0 0; }
+      .booking-field:nth-child(2) { border-bottom: 1px solid #e8eaf2; border-radius: 0 10px 0 0; }
+      .booking-field:nth-child(3) { border-right: 1px solid #e8eaf2; border-radius: 0 0 0 10px; }
+      .booking-field:nth-child(4) { border-radius: 0 0 10px 0; }
       .booking-field-icon {
-        width: 30px; height: 30px;
-        font-size: 12px; border-radius: 9px;
+        width: 28px; height: 28px;
+        font-size: 11px; border-radius: 8px;
         flex-shrink: 0;
       }
-      .booking-field label { font-size: 9px; letter-spacing: .6px; }
-      .booking-field-value, .booking-field input, .booking-field select {
-        font-size: 12px;
-      }
+      .booking-field label { font-size: 9px; letter-spacing: .5px; }
+      .booking-field-value, .booking-field input, .booking-field select { font-size: 12px; }
       .booking-field-chevron { display: none; }
       .booking-search-btn {
-        flex: 0 0 auto;
-        padding: 0 16px;
+        flex: 0 0 100%;
+        padding: 12px;
         border-radius: 11px;
-        font-size: 13px;
-        white-space: nowrap;
-        min-height: 48px;
+        font-size: 14px;
+        justify-content: center;
+        margin-top: 6px;
+        min-height: 46px;
       }
       .booking-dropdown {
         min-width: 260px;
         left: 0;
         top: calc(100% + 8px);
+        z-index: 200;
       }
 
       /* Car Category */
