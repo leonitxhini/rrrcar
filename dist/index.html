@@ -534,449 +534,70 @@
     .how-desc { font-size: 13.5px; color: var(--muted); line-height: 1.7; max-width: 200px; }
 
     /* â”€â”€ FLEET / CARS â”€â”€ */
-    #fleet {
-      background:
-        radial-gradient(900px circle at 10% 0%, rgba(59,110,245,.18), transparent 55%),
-        radial-gradient(720px circle at 90% 10%, rgba(168,85,247,.16), transparent 52%),
-        linear-gradient(180deg, #0b1220 0%, #0b1220 260px, #f7f8fb 260px, var(--white) 100%);
-      padding-top: 50px;
-      padding-bottom: 44px;
-    }
+    #fleet { background: var(--white); }
     .fleet-grid {
       display: grid;
-      grid-template-columns: repeat(1, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
     }
-    @media (min-width: 768px) {
-      .fleet-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (min-width: 1024px) {
-      .fleet-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    }
-
-    /* Premium / ghostly product cards */
     .car-card {
-      position: relative;
-      z-index: 0;
-      border-radius: 24px;
-      border: 1px solid rgba(2,6,23,.08);
+      border-radius: 20px;
+      border: 1px solid var(--border);
       overflow: hidden;
-      background: rgba(255,255,255,.68);
-      backdrop-filter: blur(10px);
-      transition: transform .35s, box-shadow .35s, border-color .35s;
+      transition: box-shadow .3s, transform .3s;
+      background: var(--white);
       cursor: pointer;
-      box-shadow: 0 18px 60px rgba(2,6,23,.06);
     }
-    .car-card::before {
-      content: 'RRON';
-      position: absolute;
-      inset: -40px -20px auto -20px;
-      height: 220px;
-      font-size: 120px;
-      font-weight: 950;
-      letter-spacing: -0.06em;
-      color: rgba(59,110,245,.12);
-      filter: blur(12px);
-      opacity: .55;
-      transform: translateY(26px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .car-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 18% 0%, rgba(59,110,245,.14), transparent 46%),
-        radial-gradient(circle at 80% 10%, rgba(34,197,94,.12), transparent 52%);
-      opacity: 0;
-      transition: opacity .35s;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .car-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(2,6,23,.14);
-      box-shadow: 0 28px 90px rgba(2,6,23,.12);
-    }
-    .car-card:hover::after { opacity: 1; }
-
+    .car-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,.1); transform: translateY(-5px); }
     .car-img-wrap {
-      height: 210px;
-      overflow: hidden;
-      background: linear-gradient(180deg, rgba(2,6,23,.03), rgba(59,110,245,.03));
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 200px; overflow: hidden;
+      background: var(--light);
+      display: flex; align-items: center; justify-content: center;
       position: relative;
-      z-index: 1;
-      border-bottom: 1px solid rgba(2,6,23,.06);
-    }
-    .car-img-wrap::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: 14px;
-      width: 76%;
-      height: 18px;
-      transform: translateX(-50%);
-      background: radial-gradient(closest-side, rgba(2,6,23,.18), transparent);
-      opacity: .55;
-      filter: blur(8px);
-      transition: opacity .35s, transform .35s;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .car-img-wrap::before {
-      content: "\f004";
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.72);
-      border: 1px solid rgba(59,110,245,.18);
-      color: rgba(59,110,245,.90);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      opacity: .95;
-      z-index: 3;
-      transition: transform .25s, background .25s, color .25s, opacity .25s;
-      pointer-events: none;
-    }
-    .car-card:hover .car-img-wrap::before {
-      background: rgba(59,110,245,.96);
-      color: #fff;
-      transform: scale(1.05);
-      opacity: 1;
     }
     .car-img-wrap img {
-      width: 100%; height: 100%;
-      object-fit: contain;
-      display: block;
-      transition: transform .6s;
-      transform: scale(1.0);
-      filter: drop-shadow(0 18px 28px rgba(2,6,23,.14));
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .4s;
     }
-    .car-card:hover .car-img-wrap img { transform: scale(1.04); }
-    .car-card:hover .car-img-wrap::after {
-      opacity: .85;
-      transform: translateX(-50%) scale(1.02);
-    }
-
+    .car-card:hover .car-img-wrap img { transform: scale(1.05); }
     .car-tag {
-      position: absolute;
-      top: 14px; left: 14px;
-      background: rgba(34,197,94,.12);
-      color: #16a34a;
-      border: 1px solid rgba(34,197,94,.30);
-      font-size: 11px;
-      font-weight: 800;
-      padding: 4px 12px;
-      border-radius: 999px;
-      letter-spacing: .4px;
-      z-index: 2;
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(34,197,94,.15); color: #16a34a;
+      border: 1px solid rgba(34,197,94,.25);
+      font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 50px;
+      letter-spacing: .3px;
     }
-
-    .car-body { padding: 22px 24px 24px; position: relative; z-index: 1; }
+    .car-body { padding: 20px 22px 22px; }
     .car-class-label {
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 2.8px;
-      color: rgba(17,24,39,.62);
-      text-transform: uppercase;
-      margin-bottom: 8px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px;
+      color: var(--blue); text-transform: uppercase; margin-bottom: 6px;
     }
-    .car-name-big { font-size: 22px; font-weight: 950; margin-bottom: 12px; letter-spacing: -.4px; color: #0b1220; }
+    .car-name-big { font-size: 21px; font-weight: 900; margin-bottom: 14px; letter-spacing: -.3px; }
     .car-specs-row {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(2,6,23,.08);
+      display: flex; gap: 14px; flex-wrap: wrap;
+      padding-bottom: 16px; border-bottom: 1px solid var(--border);
       margin-bottom: 16px;
     }
     .car-spec {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 12.5px;
-      color: rgba(17,24,39,.62);
-      font-weight: 550;
+      display: flex; align-items: center; gap: 5px;
+      font-size: 12.5px; color: var(--muted); font-weight: 500;
     }
-    .car-spec i { font-size: 11px; color: rgba(59,110,245,.78); }
-
+    .car-spec i { font-size: 11px; color: var(--blue); }
     .car-footer-row {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 14px;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    .car-price-big { font-size: 30px; font-weight: 950; color: #0b1220; }
-    .car-price-big span { font-size: 13px; font-weight: 600; color: rgba(17,24,39,.55); }
-
+    .car-price-big { font-size: 24px; font-weight: 900; color: #111; }
+    .car-price-big span { font-size: 13px; font-weight: 400; color: var(--muted); }
     .car-book-btn {
-      padding: 10px 22px;
-      border-radius: 999px;
-      background: rgba(2,6,23,.92);
-      color: transparent;
-      font-size: 0;
-      font-weight: 800;
-      border: 1px solid rgba(2,6,23,.12);
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform .2s, background .2s, box-shadow .3s, border-color .3s;
-      box-shadow: 0 16px 40px rgba(2,6,23,.16);
-      white-space: nowrap;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 10px 22px; border-radius: 50px;
+      background: var(--blue); color: #fff;
+      font-size: 13px; font-weight: 700; border: none;
+      cursor: pointer; text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 14px rgba(59,110,245,.3);
     }
-    .car-book-btn::before {
-      content: "Book Now";
-      color: #fff;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .01em;
-    }
-    .car-book-btn::after {
-      content: " \2192";
-      color: #fff;
-      font-size: 13px;
-      font-weight: 800;
-      margin-left: 6px;
-    }
-    .car-book-btn:hover {
-      transform: translateY(-1px);
-      background: rgba(2,6,23,.98);
-      border-color: rgba(59,110,245,.35);
-      box-shadow: 0 22px 60px rgba(2,6,23,.22);
-    }
-
-    /* â”€â”€ PREMIUM FLEET PAGE (SEARCH / PROMOS / BOOKING BAR) â”€â”€ */
-    .fleet-page-search {
-      max-width: 1180px;
-      margin: 0 auto 22px;
-      padding: 0 16px;
-    }
-    .fleet-search-bar {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.14);
-      box-shadow: 0 18px 50px rgba(0,0,0,.25);
-      border-radius: 999px;
-      padding: 12px 16px;
-      backdrop-filter: blur(10px);
-    }
-    .fleet-search-bar i {
-      color: rgba(120,180,255,.95);
-      font-size: 14px;
-    }
-    .fleet-search-bar input {
-      border: none;
-      outline: none;
-      background: transparent;
-      color: #fff;
-      width: 100%;
-      font-size: 14px;
-      font-weight: 600;
-    }
-    .fleet-search-bar input::placeholder { color: rgba(255,255,255,.60); font-weight: 600; }
-
-    .fleet-promo-row {
-      max-width: 1180px;
-      margin: 0 auto 22px;
-      padding: 0 16px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-    @media (min-width: 980px) {
-      .fleet-promo-row { grid-template-columns: 1fr 1fr; }
-    }
-    .fleet-promo-card {
-      border-radius: 32px;
-      border: 1px solid rgba(255,255,255,.16);
-      background:
-        radial-gradient(800px circle at 15% 0%, rgba(59,110,245,.45), transparent 58%),
-        radial-gradient(700px circle at 85% 20%, rgba(168,85,247,.35), transparent 55%),
-        rgba(255,255,255,.08);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 30px 90px rgba(0,0,0,.25);
-      overflow: hidden;
-      padding: 22px 22px;
-      position: relative;
-      min-height: 180px;
-    }
-    .fleet-promo-card .fleet-promo-copy { max-width: 520px; }
-    .fleet-promo-card h3 {
-      color: #fff;
-      font-weight: 950;
-      font-size: 22px;
-      letter-spacing: -.02em;
-      margin-bottom: 10px;
-    }
-    .fleet-promo-card p {
-      color: rgba(255,255,255,.78);
-      line-height: 1.6;
-      font-size: 14px;
-      margin-bottom: 14px;
-      max-width: 520px;
-    }
-    .fleet-promo-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border-radius: 999px;
-      padding: 12px 16px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.18);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 800;
-      text-decoration: none;
-      transition: transform .2s, background .2s, border-color .2s;
-      white-space: nowrap;
-    }
-    .fleet-promo-btn:hover {
-      transform: translateY(-1px);
-      background: rgba(59,110,245,.22);
-      border-color: rgba(120,180,255,.40);
-    }
-    .fleet-promo-btn i { color: rgba(120,180,255,.95); }
-    .fleet-promo-visual {
-      position: absolute;
-      right: -20px;
-      bottom: -16px;
-      width: 46%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
-      pointer-events: none;
-    }
-    .fleet-promo-visual img {
-      width: 100%;
-      height: auto;
-      max-width: 320px;
-      filter: drop-shadow(0 18px 50px rgba(0,0,0,.35));
-      transform: translateY(4px);
-    }
-    .fleet-booking-bar {
-      max-width: 1180px;
-      margin: 0 auto 22px;
-      padding: 0 16px;
-    }
-    .fleet-booking-container {
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.08);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 30px 90px rgba(0,0,0,.25);
-      padding: 14px;
-    }
-    .fleet-booking-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    @media (min-width: 980px) {
-      .fleet-booking-grid { grid-template-columns: 1fr auto 1fr 1fr 1fr; gap: 14px; align-items: center; }
-    }
-    .fleet-field {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      padding: 10px 12px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-    }
-    .fleet-field i { color: rgba(120,180,255,.95); font-size: 13px; }
-    .fleet-field label {
-      display: block;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.68);
-      margin-bottom: 2px;
-    }
-    .fleet-field input {
-      border: none;
-      outline: none;
-      background: transparent;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      width: 100%;
-    }
-    .fleet-field input::placeholder { color: rgba(255,255,255,.55); }
-    .fleet-swap-wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .fleet-swap-btn {
-      width: 48px;
-      height: 48px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.10);
-      color: #fff;
-      cursor: pointer;
-      transition: transform .2s, background .2s, border-color .2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-    }
-    .fleet-swap-btn:hover {
-      transform: translateY(-1px);
-      background: rgba(59,110,245,.24);
-      border-color: rgba(120,180,255,.42);
-    }
-    .fleet-section-header {
-      max-width: 1180px;
-      margin: 0 auto 18px;
-      padding: 0 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .fleet-section-header h3 {
-      color: #fff;
-      font-size: 18px;
-      font-weight: 950;
-      letter-spacing: -.01em;
-    }
-    .fleet-view-all {
-      color: rgba(255,255,255,.82);
-      font-size: 13px;
-      font-weight: 800;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      transition: transform .2s, background .2s, border-color .2s;
-    }
-    .fleet-view-all:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.10);
-      border-color: rgba(120,180,255,.38);
-    }
+    .car-book-btn:hover { background: var(--blue-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(59,110,245,.45); }
 
     /* â”€â”€ SERVICES â”€â”€ */
     #services { background: var(--light); }
@@ -1577,7 +1198,7 @@
 <section id="categories">
   <div class="sec-header">
     <h2 class="sec-title">Car Category</h2>
-    <a href="#fleet" class="see-all">See all <i class="fas fa-arrow-right"></i></a>
+    <a href="/fleet" class="see-all">See all <i class="fas fa-arrow-right"></i></a>
   </div>
   <div class="cat-grid">
     <div class="cat-card" onclick="document.getElementById('fleet').scrollIntoView({behavior:'smooth'})">
@@ -1649,84 +1270,9 @@
 
 <!-- FLEET -->
 <section id="fleet">
-  <div class="fleet-page-search">
-    <div class="fleet-search-bar">
-      <i class="fas fa-search" aria-hidden="true"></i>
-      <input type="text" placeholder="Search any car here..." aria-label="Search any car here" />
-    </div>
-  </div>
-
-  <div class="fleet-promo-row">
-    <div class="fleet-promo-card">
-      <div class="fleet-promo-copy">
-        <h3>Drive the Balkans in Style</h3>
-        <p>Premium vehicles for travel across Kosovo, Albania, and beyond.</p>
-        <a href="#fleetGrid" class="fleet-promo-btn">Explore Fleet <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-      </div>
-      <div class="fleet-promo-visual">
-        <img src="/cars/audi-a6-2021-white.png" alt="Audi A6 2021 White" loading="lazy" />
-      </div>
-    </div>
-
-    <div class="fleet-promo-card fleet-promo-card-2">
-      <div class="fleet-promo-copy">
-        <h3>Simple Booking. Premium Cars.</h3>
-        <p>Choose your car, select your dates, and drive with zero hassle.</p>
-        <a href="https://wa.me/38370000000" target="_blank" class="fleet-promo-btn">Book Now <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-      </div>
-      <div class="fleet-promo-visual">
-        <img src="/cars/audi-a5-2021-dark-blue.png" alt="Audi A5 2021 Dark Blue" loading="lazy" />
-      </div>
-    </div>
-  </div>
-
-  <div class="fleet-booking-bar">
-    <div class="fleet-booking-container">
-      <div class="fleet-booking-grid">
-        <div class="fleet-field">
-          <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-          <div>
-            <label>Pick-Up</label>
-            <input type="text" placeholder="Select pick-up location" />
-          </div>
-        </div>
-
-        <div class="fleet-swap-wrap">
-          <button type="button" class="fleet-swap-btn" aria-label="Swap pick-up and drop-off">
-            <i class="fas fa-exchange-alt" aria-hidden="true"></i>
-          </button>
-        </div>
-
-        <div class="fleet-field">
-          <i class="fas fa-map-signs" aria-hidden="true"></i>
-          <div>
-            <label>Drop-Off</label>
-            <input type="text" placeholder="Select drop-off location" />
-          </div>
-        </div>
-
-        <div class="fleet-field">
-          <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-          <div>
-            <label>Date</label>
-            <input type="date" />
-          </div>
-        </div>
-
-        <div class="fleet-field">
-          <i class="fas fa-clock" aria-hidden="true"></i>
-          <div>
-            <label>Time</label>
-            <input type="time" value="10:00" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="fleet-section-header">
-    <h3>Popular Cars</h3>
-    <a href="#fleetGrid" class="fleet-view-all">View All <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+  <div class="sec-header">
+    <h2 class="sec-title">Our Fleet</h2>
+    <a href="https://wa.me/38370000000" target="_blank" class="see-all">Book via WhatsApp <i class="fab fa-whatsapp"></i></a>
   </div>
   <div class="fleet-grid" id="fleetGrid">
 
@@ -2173,14 +1719,6 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const p = window.location.pathname.replace(/\/+$/, '');
-    if (p === '/fleet' || p.endsWith('/fleet')) {
-      const el = document.getElementById('fleet');
-      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 60);
-    }
-  });
-
   function toggleMenu() {
     document.getElementById('mobMenu').classList.toggle('open');
   }
