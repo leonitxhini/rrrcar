@@ -21,19 +21,21 @@ type RRONHeroProps = {
 export default function RRONHero({
   pickupPlaceholder = "Pickup location",
   dropoffPlaceholder = "Drop-off location",
-  carBackgroundSrc = "/cars/hero-background.jpg",
+  carBackgroundSrc,
   announcementText = "🚗 Unlimited KM • 🌍 Balkan Travel • 💸 0€ Extra Fees",
 }: RRONHeroProps) {
   return (
     <section className="relative min-h-[100svh] bg-gradient-to-b from-slate-950 via-slate-900 to-black">
       <div className="absolute inset-0 overflow-hidden">
-        <img
-          src={carBackgroundSrc}
-          alt=""
-          aria-hidden="true"
-          className="h-full w-full object-cover opacity-20"
-          loading="eager"
-        />
+        {carBackgroundSrc ? (
+          <img
+            src={carBackgroundSrc}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover opacity-20"
+            loading="eager"
+          />
+        ) : null}
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/10" />
       </div>
 
