@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm run build && node scripts/create-routes-manifest.mjs",
-  "outputDirectory": "out",
+  "buildCommand": "echo \"Skipping Next build; deploying dist\"",
+  "outputDirectory": "dist",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
 
