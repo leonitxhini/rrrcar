@@ -53,7 +53,7 @@
 
     /* â”€â”€ NAVBAR â”€â”€ */
     nav {
-      position: fixed; top: 16px; left: 50%; z-index: 1000;
+      position: fixed; top: 66px; left: 50%; z-index: 1000;
       transform: translateX(-50%);
       width: calc(100% - 80px);
       max-width: 1280px;
@@ -67,6 +67,29 @@
       display: flex; align-items: center;
       padding: 0 24px; gap: 32px;
       transition: background .3s, box-shadow .3s;
+    }
+
+    /* Announcement bar */
+    .announce-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      z-index: 1201;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      background: linear-gradient(90deg, rgba(10,15,35,0.95) 0%, rgba(10,15,35,0.6) 60%, rgba(0,0,0,0.6) 100%);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: rgba(255,255,255,.9);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: .2px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
     nav.scrolled {
       background: rgba(10,15,35,0.95);
@@ -122,6 +145,21 @@
       height: 100vh; min-height: 620px;
       background: #1a1a2e;
       display: flex; flex-direction: column; justify-content: flex-end;
+    }
+    .hero-brand {
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 0;
+      font-size: clamp(72px, 12vw, 170px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: rgba(255,255,255,.07);
+      filter: blur(14px);
+      user-select: none;
     }
     .hero-img {
       position: absolute; inset: 0;
@@ -869,7 +907,7 @@
       /* Navbar */
       nav {
         padding: 0 14px;
-        top: 10px;
+        top: 60px;
         width: calc(100% - 28px);
         height: 52px;
         border-radius: 999px;
@@ -903,6 +941,10 @@
         justify-content: flex-end;
         padding: 0 16px 16px;
         gap: 8px;
+      }
+      .hero-content {
+        max-width: 100%;
+        text-align: center;
       }
       .hero-content h1 {
         font-size: 32px;
@@ -1018,7 +1060,7 @@
 
     /* â”€â”€ SMALL PHONES â”€â”€ */
     @media (max-width: 420px) {
-      nav { width: calc(100% - 20px); top: 8px; }
+      nav { width: calc(100% - 20px); top: 58px; }
       .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .how-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
       .hero-content h1 { font-size: 28px; }
@@ -1033,6 +1075,11 @@
   </style>
 </head>
 <body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar" id="announceBar">
+  🚗 Unlimited KM • 🌍 Balkan Travel • 💸 0€ Extra Fees
+</div>
 
 <!-- NAVBAR -->
 <nav id="navbar">
@@ -1071,12 +1118,13 @@
 <section id="hero">
   <div class="hero-img"></div>
   <div class="hero-overlay"></div>
+  <div class="hero-brand" aria-hidden="true">RRON</div>
   <div class="hero-inner">
     <div class="hero-content">
-      <h1>Premium car<br>rental</h1>
+      <h1>Drive Without Limits</h1>
     </div>
     <div class="hero-desc">
-      We want you to have a stress-free rental experience, so we make it easy to hire a car – by providing simple search tools, customer reviews and plenty of pick-up locations across the city.
+      Explore the Balkans with premium vehicles — unlimited kilometers, zero hidden fees
     </div>
   </div>
   <div class="booking-bar" id="bookingBar">
