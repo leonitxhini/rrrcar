@@ -2,6 +2,9 @@
   "name": "ronrent",
   "private": true,
   "version": "1.0.0",
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "type": "module",
   "scripts": {
     "dev": "next dev",
