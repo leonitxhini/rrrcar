@@ -17,3 +17,12 @@ body {
   box-sizing: border-box;
 }
 
+/* Mobile Swipe: Scrollbar ausblenden, aber Scrollen bleibt möglich. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
