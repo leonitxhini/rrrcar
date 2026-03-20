@@ -8,7 +8,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/prepare-vercel-dist.mjs",
     "start": "next start",
     "lint": "next lint"
   },
