@@ -1421,7 +1421,7 @@
   <ul class="nav-links">
     <li><a href="#" class="active">Home</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#fleet">Fleet</a></li>
+    <li><a href="/fleet">Fleet</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1441,7 +1441,7 @@
 <div class="mob-menu" id="mobMenu">
   <a href="#" onclick="toggleMenu()">Home</a>
   <a href="#services" onclick="toggleMenu()">Services</a>
-  <a href="#fleet" onclick="toggleMenu()">Fleet</a>
+  <a href="/fleet" onclick="toggleMenu()">Fleet</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
 </div>
@@ -2173,6 +2173,14 @@
 </div>
 
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const p = window.location.pathname.replace(/\/+$/, '');
+    if (p === '/fleet' || p.endsWith('/fleet')) {
+      const el = document.getElementById('fleet');
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 60);
+    }
+  });
+
   function toggleMenu() {
     document.getElementById('mobMenu').classList.toggle('open');
   }
