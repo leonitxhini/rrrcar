@@ -1,1 +1,1 @@
-{"version":1,"routes":{"/":{"html":"index.html"},"/fleet":{"html":"index.html"}}}
+{"version":1,"routes":{"/":{"html":"index.html"},"/fleet":{"html":"fleet/index.html"}}}
