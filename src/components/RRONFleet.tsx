@@ -1,20 +1,28 @@
-/* Mobile Swipe: Fleet-Karten als Apple-Style Carousel */
+/* Premium product-style car cards */
 "use client";
 
 import * as React from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  BriefcaseBusiness,
+  Droplets,
+  Settings,
+  Users,
+} from "lucide-react";
 
 type Vehicle = {
   id: string;
-  category: "Premium" | "Comfort" | "Economy";
+  status: "Available";
+  typeLabel: string; // EXECUTIVE / COMFORT / ECONOMY
   name: string;
   year: number;
-  imageSrc: string;
-  specs: {
-    label: string;
-    value: string;
-  }[];
+  color: string; // WHITE / GREY / BLACK...
+  transmission: string; // Automatic / Manual
+  fuel: string; // Diesel / Petrol
+  seats: number;
+  bags: number;
   pricePerDay: number;
+  imageSrc: string;
 };
 
 type RRONFleetProps = {
@@ -25,109 +33,104 @@ type RRONFleetProps = {
 const VEHICLES: Vehicle[] = [
   {
     id: "audi-a6-2021",
-    category: "Premium",
+    status: "Available",
+    typeLabel: "EXECUTIVE",
     name: "Audi A6",
     year: 2021,
-    imageSrc: "/ferizaj.jpg",
-    specs: [
-      { label: "Transmission", value: "Automatic" },
-      { label: "Fuel", value: "Diesel" },
-      { label: "Seats", value: "5 Seats" },
-    ],
+    color: "WHITE",
+    transmission: "Automatic",
+    fuel: "Diesel",
+    seats: 5,
+    bags: 4,
     pricePerDay: 99,
+    imageSrc: "/ferizaj.jpg",
   },
   {
     id: "audi-a5-2021",
-    category: "Comfort",
+    status: "Available",
+    typeLabel: "COMFORT",
     name: "Audi A5",
     year: 2021,
-    imageSrc: "/ferizaj.jpg",
-    specs: [
-      { label: "Transmission", value: "Automatic" },
-      { label: "Fuel", value: "Diesel" },
-      { label: "Seats", value: "5 Seats" },
-    ],
+    color: "BLACK",
+    transmission: "Automatic",
+    fuel: "Diesel",
+    seats: 5,
+    bags: 4,
     pricePerDay: 95,
+    imageSrc: "/ferizaj.jpg",
   },
   {
     id: "audi-a3-2018",
-    category: "Economy",
+    status: "Available",
+    typeLabel: "ECONOMY",
     name: "Audi A3",
     year: 2018,
-    imageSrc: "/ferizaj.jpg",
-    specs: [
-      { label: "Transmission", value: "Automatic" },
-      { label: "Fuel", value: "Petrol" },
-      { label: "Seats", value: "5 Seats" },
-    ],
+    color: "GREY",
+    transmission: "Automatic",
+    fuel: "Petrol",
+    seats: 5,
+    bags: 3,
     pricePerDay: 79,
+    imageSrc: "/ferizaj.jpg",
   },
   {
-    id: "vw-golf-8",
-    category: "Comfort",
+    id: "vw-golf-8-2021",
+    status: "Available",
+    typeLabel: "COMFORT",
     name: "VW Golf 8",
     year: 2021,
-    imageSrc: "/ferizaj.jpg",
-    specs: [
-      { label: "Transmission", value: "Automatic" },
-      { label: "Fuel", value: "Petrol" },
-      { label: "Seats", value: "5 Seats" },
-    ],
+    color: "BLACK",
+    transmission: "Automatic",
+    fuel: "Petrol",
+    seats: 5,
+    bags: 3,
     pricePerDay: 69,
+    imageSrc: "/ferizaj.jpg",
   },
   {
-    id: "vw-golf-7",
-    category: "Economy",
+    id: "vw-golf-7-2017",
+    status: "Available",
+    typeLabel: "ECONOMY",
     name: "VW Golf 7",
     year: 2017,
-    imageSrc: "/ferizaj.jpg",
-    specs: [
-      { label: "Transmission", value: "Automatic" },
-      { label: "Fuel", value: "Diesel" },
-      { label: "Seats", value: "5 Seats" },
-    ],
+    color: "GREY",
+    transmission: "Automatic",
+    fuel: "Diesel",
+    seats: 5,
+    bags: 3,
     pricePerDay: 59,
+    imageSrc: "/ferizaj.jpg",
   },
   {
-    id: "peugeot-308",
-    category: "Comfort",
+    id: "peugeot-308-2019",
+    status: "Available",
+    typeLabel: "COMFORT",
     name: "Peugeot 308",
     year: 2019,
-    imageSrc: "/ferizaj.jpg",
-    specs: [
-      { label: "Transmission", value: "Automatic" },
-      { label: "Fuel", value: "Diesel" },
-      { label: "Seats", value: "5 Seats" },
-    ],
+    color: "GREY",
+    transmission: "Automatic",
+    fuel: "Diesel",
+    seats: 5,
+    bags: 4,
     pricePerDay: 64,
-  },
-  {
-    id: "citroen-c4",
-    category: "Economy",
-    name: "Citroën C4",
-    year: 2015,
     imageSrc: "/ferizaj.jpg",
-    specs: [
-      { label: "Transmission", value: "Automatic" },
-      { label: "Fuel", value: "Diesel" },
-      { label: "Seats", value: "5 Seats" },
-    ],
-    pricePerDay: 52,
-  },
-  {
-    id: "ford-fiesta",
-    category: "Economy",
-    name: "Ford Fiesta",
-    year: 2017,
-    imageSrc: "/ferizaj.jpg",
-    specs: [
-      { label: "Transmission", value: "Manual" },
-      { label: "Fuel", value: "Petrol" },
-      { label: "Seats", value: "5 Seats" },
-    ],
-    pricePerDay: 49,
   },
 ];
+
+function Spec({
+  icon: Icon,
+  text,
+}: {
+  icon: React.ComponentType<{ className?: string }>;
+  text: string;
+}) {
+  return (
+    <div className="flex items-center gap-2">
+      <Icon className="h-4 w-4 text-slate-500/80" />
+      <span className="text-xs font-medium text-slate-600">{text}</span>
+    </div>
+  );
+}
 
 function VehicleCard({
   v,
@@ -139,134 +142,127 @@ function VehicleCard({
   onViewDetails?: (vehicleId: string) => void;
 }) {
   return (
-    <article className="group rounded-3xl border border-slate-200/70 bg-white/70 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:shadow-xl">
+    <article
+      className="group relative rounded-3xl border border-slate-200/70 bg-white/70 p-0 shadow-[0_20px_70px_rgba(2,6,23,.08)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-slate-900/10 hover:shadow-[0_30px_110px_rgba(2,6,23,.14)]"
+      aria-label={`${v.name} ${v.year}`}
+    >
+      <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 blur-2xl transition duration-300 group-hover:opacity-100">
+        <div className="absolute -top-16 left-1/2 h-[220px] w-[320px] -translate-x-1/2 rounded-full bg-slate-950/5" />
+      </div>
+
       <div className="p-6">
-        <div className="relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-2xl bg-slate-50">
-          <img
-            src={v.imageSrc}
-            alt={`${v.name} ${v.year}`}
-            loading="lazy"
-            className="h-[74%] w-[88%] object-contain transition duration-300 group-hover:scale-[1.03]"
-          />
-        </div>
+        {/* Image / visual top area */}
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/65 to-slate-50/55">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(2,6,23,.06),transparent_45%),radial-gradient(circle_at_80%_30%,rgba(59,110,245,.10),transparent_55%)]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent" />
 
-        <div className="mt-6">
-          <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-            {v.category}
-          </div>
-
-          <h3 className="mt-2 text-lg font-black tracking-tight text-slate-900">
-            {v.name} <span className="text-slate-500">{v.year}</span>
-          </h3>
-
-          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-slate-600">
-            {v.specs.map((s, idx) => (
-              <React.Fragment key={`${v.id}-${s.label}`}>
-                <span className="font-medium text-slate-700">{s.value}</span>
-                {idx < v.specs.length - 1 ? (
-                  <span className="text-slate-300" aria-hidden="true">
-                    •
-                  </span>
-                ) : null}
-              </React.Fragment>
-            ))}
-          </div>
-
-          <div className="mt-5">
-            <div className="flex items-baseline gap-2">
-              <div className="text-sm font-semibold text-slate-500">from</div>
-              <div className="text-2xl font-black tracking-tight text-slate-900">
-                €{v.pricePerDay}
-              </div>
-              <div className="text-sm font-semibold text-slate-500">/day</div>
+          <div className="absolute inset-0 flex items-center justify-center opacity-100">
+            <div className="select-none text-[clamp(72px,9vw,128px)] font-black tracking-tight text-slate-900/5 blur-[1px] transition duration-300 group-hover:blur-[0.7px]">
+              RRON
             </div>
           </div>
 
-          <div className="mt-6 space-y-3">
+          <div className="relative">
+            <div className="mx-auto flex h-[210px] items-end justify-center">
+              <div className="absolute bottom-3 left-1/2 h-7 w-[78%] -translate-x-1/2 rounded-full bg-black/10 blur-2xl opacity-80 transition duration-300 group-hover:opacity-100" />
+              <img
+                src={v.imageSrc}
+                alt={`${v.name} ${v.year}`}
+                loading="lazy"
+                className="relative z-10 mb-2 h-[150px] w-auto object-contain transition duration-300 group-hover:scale-[1.04] drop-shadow-[0_18px_40px_rgba(2,6,23,.18)]"
+              />
+            </div>
+
+            <div className="absolute left-4 top-4">
+              <span className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[12px] font-semibold text-emerald-700 shadow-sm">
+                {v.status}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Clean content block */}
+        <div className="mt-6">
+          <div className="text-xs font-semibold tracking-[0.18em] text-slate-500/90 uppercase">
+            {v.typeLabel} • {v.year} • {v.color}
+          </div>
+
+          <h3 className="mt-2 text-xl font-black tracking-tight text-slate-900">
+            {v.name}
+          </h3>
+
+          {/* Specs row */}
+          <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3">
+            <Spec icon={Settings} text={v.transmission} />
+            <Spec icon={Droplets} text={v.fuel} />
+            <Spec icon={Users} text={`${v.seats} seats`} />
+            <Spec icon={BriefcaseBusiness} text={`${v.bags} bags`} />
+          </div>
+
+          {/* Price anchor + CTA */}
+          <div className="mt-6 flex items-end justify-between gap-4">
+            <div className="leading-none">
+              <div className="text-xs font-semibold text-slate-500">from</div>
+              <div className="mt-1 flex items-baseline gap-2">
+                <span className="text-3xl font-black tracking-tight text-slate-900">
+                  €{v.pricePerDay}
+                </span>
+                <span className="text-xs font-semibold text-slate-500">
+                  /day
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => onBookNow?.(v.id)}
+            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-bold text-white shadow-[0_18px_45px_rgba(2,6,23,.25)] transition duration-300 hover:-translate-y-[1px] hover:bg-slate-900 hover:shadow-[0_26px_85px_rgba(2,6,23,.33)] focus:outline-none focus:ring-2 focus:ring-slate-950/20"
+          >
+            Book Now <span aria-hidden="true">→</span>
+            <ArrowRight className="h-4 w-4" />
+          </button>
+
+          {onViewDetails ? (
             <button
               type="button"
-              onClick={() => onBookNow?.(v.id)}
-              className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 text-sm font-bold text-white shadow-[0_12px_28px_rgba(2,6,23,.18)] transition duration-200 hover:bg-slate-800"
-            >
-              Book Now
-              <ArrowRight className="h-4 w-4" />
-            </button>
-            <button
-              type="button"
-              onClick={() => onViewDetails?.(v.id)}
-              className="mx-auto min-h-[44px] rounded-2xl px-2 py-1 text-sm font-semibold text-slate-600 transition duration-200 hover:text-slate-900 hover:underline hover:underline-offset-4"
+              onClick={() => onViewDetails(v.id)}
+              className="mt-3 inline-flex w-full items-center justify-center rounded-full border border-slate-200/70 bg-white/40 px-6 py-3 text-sm font-semibold text-slate-700 transition duration-300 hover:border-slate-900/10 hover:bg-white/60 hover:text-slate-900"
             >
               View Details
             </button>
-          </div>
+          ) : null}
         </div>
       </div>
     </article>
   );
 }
 
-export default function RRONFleet({ onBookNow, onViewDetails }: RRONFleetProps) {
-  const scrollRef = React.useRef<HTMLDivElement | null>(null);
-
-  function scrollCarousel(direction: -1 | 1) {
-    const el = scrollRef.current;
-    if (!el) return;
-    const amount = Math.max(260, el.clientWidth * 0.86);
-    el.scrollBy({ left: direction * amount, behavior: "smooth" });
-  }
-
+export default function RRONFleet({
+  onBookNow,
+  onViewDetails,
+}: RRONFleetProps) {
   return (
-    <section className="bg-white">
+    <section className="relative overflow-hidden bg-white">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-32 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-slate-950/3 blur-3xl" />
+      </div>
+
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="max-w-3xl">
-          <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
-            Our Fleet
+          <div className="text-xs font-semibold tracking-[0.22em] text-slate-500 uppercase">
+            RRON Fleet
+          </div>
+          <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+            Premium vehicles, curated like a product.
           </h2>
           <p className="mt-3 text-base leading-relaxed text-slate-600">
-            Choose from premium and everyday vehicles for driving across Kosovo, Albania, and the Balkans.
+            Executive comfort for modern travel across Kosovo, Albania, and the
+            Balkans.
           </p>
         </div>
 
-        {/* Mobile Swipe (Apple Cards) */}
-        <div className="mt-10 md:hidden">
-          <div className="flex items-center justify-between gap-3">
-            <button
-              type="button"
-              aria-label="Previous vehicles"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/80 shadow-sm backdrop-blur transition hover:bg-white"
-              onClick={() => scrollCarousel(-1)}
-            >
-              <ArrowLeft className="h-5 w-5 text-slate-700" />
-            </button>
-
-            <button
-              type="button"
-              aria-label="Next vehicles"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/80 shadow-sm backdrop-blur transition hover:bg-white"
-              onClick={() => scrollCarousel(1)}
-            >
-              <ArrowRight className="h-5 w-5 text-slate-700" />
-            </button>
-          </div>
-
-          <div
-            ref={scrollRef}
-            className="no-scrollbar mt-4 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory"
-          >
-            {VEHICLES.map((v) => (
-              <div key={v.id} className="snap-start w-[86%] max-w-[340px] flex-none">
-                <VehicleCard
-                  v={v}
-                  onBookNow={onBookNow}
-                  onViewDetails={onViewDetails}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Desktop Grid */}
-        <div className="mt-12 hidden grid-cols-1 gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {VEHICLES.map((v) => (
             <VehicleCard
               key={v.id}
