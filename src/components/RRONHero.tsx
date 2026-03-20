@@ -6,7 +6,7 @@ import {
   CreditCard,
   Globe,
   MapPin,
-  PlaneLanding,
+  Plane,
   Search,
   Zap,
 } from "lucide-react";
@@ -25,14 +25,14 @@ export default function RRONHero({
   announcementText = "🚗 Unlimited KM • 🌍 Balkan Travel • 💸 0€ Extra Fees",
 }: RRONHeroProps) {
   return (
-    <section className="relative min-h-[100svh] overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-black">
-      <div className="absolute inset-0">
+    <section className="relative min-h-[100svh] bg-gradient-to-b from-slate-950 via-slate-900 to-black">
+      <div className="absolute inset-0 overflow-hidden">
         <img
           src={carBackgroundSrc}
           alt=""
           aria-hidden="true"
           className="h-full w-full object-cover opacity-20"
-          loading="lazy"
+          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/10" />
       </div>
@@ -81,7 +81,7 @@ export default function RRONHero({
 
                 <div className="rounded-xl bg-white/5 p-4 backdrop-blur-sm">
                   <div className="flex items-center gap-2">
-                    <PlaneLanding className="h-4 w-4 text-white/70" />
+                    <Plane className="h-4 w-4 text-white/70" />
                     <label className="text-xs font-semibold text-white/75">{dropoffPlaceholder}</label>
                   </div>
                   <input
