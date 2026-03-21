@@ -145,21 +145,32 @@
       justify-content: flex-start;
       padding: 96px 0 40px;
     }
-    /* Desktop: nicht „top“ — sonst sitzt das Motiv-Branding zu tief/hinter der Bar; ~38% zentriert den sichtbaren Bereich besser */
+    /* Hintergrund leicht „herauszoomen“: größere Fläche + clip (nur Desktop) */
+    .hero-bg-clip {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
     .hero-img {
-      position: absolute; inset: 0;
-      background: url('/hero.png?v=8') center center / cover no-repeat;
+      position: absolute;
+      inset: 0;
+      background: url('/hero.png?v=9') center center / cover no-repeat;
       opacity: 1;
       image-rendering: -webkit-optimize-contrast;
     }
     .hero-overlay {
       position: absolute; inset: 0;
+      z-index: 1;
       background:
         linear-gradient(to right, rgba(4,6,12,.94) 0%, rgba(5,8,22,.78) 42%, rgba(5,8,22,.38) 100%),
         linear-gradient(to top, rgba(4,6,12,.88) 0%, transparent 55%);
     }
     @media (min-width: 769px) {
       .hero-img {
+        inset: -14%;
+        background-size: cover;
         background-position: center 38%;
       }
       /* Overlay etwas transparenter, damit Logo/Text im hero.png durchscheint */
@@ -1313,7 +1324,9 @@
 
 <!-- HERO + BOOKING BAR -->
 <section id="hero">
-  <div class="hero-img"></div>
+  <div class="hero-bg-clip" aria-hidden="true">
+    <div class="hero-img"></div>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-shell">
     <div class="hero-left">
