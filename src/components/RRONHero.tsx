@@ -22,7 +22,7 @@ const fieldShell =
 export default function RRONHero({
   pickupPlaceholder = "Pick-up location",
   dropoffPlaceholder = "Drop-off location",
-  carBackgroundSrc = "/hero.png?v=3",
+  carBackgroundSrc = "/hero.png?v=7",
 }: RRONHeroProps) {
   return (
     <section className="relative overflow-x-clip overflow-y-visible bg-[#06080f]">
@@ -32,16 +32,16 @@ export default function RRONHero({
           src={carBackgroundSrc}
           alt=""
           aria-hidden="true"
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover object-center md:object-top"
           loading="eager"
           decoding="async"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#04060c]/95 via-[#050816]/78 to-[#050816]/35"
+          className="absolute inset-0 bg-gradient-to-r from-[#04060c]/95 via-[#050816]/78 to-[#050816]/35 md:from-[#04060c]/78 md:via-[#050816]/62 md:to-[#050816]/32"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-t from-[#04060c]/90 via-transparent to-[#04060c]/25"
+          className="absolute inset-0 bg-gradient-to-t from-[#04060c]/90 via-transparent to-[#04060c]/25 md:from-[#04060c]/72 md:via-transparent md:to-transparent"
           aria-hidden="true"
         />
       </div>
