@@ -14,8 +14,6 @@ type RRONHeroProps = {
   dropoffPlaceholder?: string;
   /** Full-bleed hero background (e.g. /hero.png) */
   carBackgroundSrc?: string;
-  /** Optional product shot for the right column (desktop) */
-  carImageSrc?: string;
 };
 
 const fieldShell =
@@ -25,7 +23,6 @@ export default function RRONHero({
   pickupPlaceholder = "Pick-up location",
   dropoffPlaceholder = "Drop-off location",
   carBackgroundSrc = "/hero.png?v=3",
-  carImageSrc = "/cars/audi-a6-2021-white.png",
 }: RRONHeroProps) {
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-[#06080f]">
@@ -50,9 +47,9 @@ export default function RRONHero({
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1280px] flex-col px-5 pb-12 pt-24 sm:px-6 sm:pt-28 lg:pb-16 lg:pt-32">
-        <div className="grid flex-1 items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-16">
-          {/* Left: copy + trust + booking */}
-          <div className="flex flex-col justify-center lg:col-span-7">
+        <div className="grid flex-1 items-center gap-10">
+          {/* Copy + trust + booking (single column — no right image card) */}
+          <div className="flex flex-col justify-center">
             <h1 className="text-[clamp(2.25rem,5.5vw,3.75rem)] font-black leading-[1.05] tracking-tight text-white">
               Premium car rental
             </h1>
@@ -187,22 +184,6 @@ export default function RRONHero({
                   </button>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Right: car visual only (desktop) */}
-          <div className="relative hidden min-h-[280px] lg:col-span-5 lg:flex lg:min-h-[420px] lg:items-end lg:justify-center">
-            <div className="pointer-events-none relative w-full max-w-lg select-none">
-              <div
-                className="absolute -bottom-8 left-1/2 h-48 w-[120%] -translate-x-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(59,108,255,0.22),transparent_60%)] blur-2xl"
-                aria-hidden
-              />
-              <img
-                src={carImageSrc}
-                alt="Premium rental vehicle"
-                className="relative z-[1] w-full object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.55)]"
-                loading="lazy"
-              />
             </div>
           </div>
         </div>

@@ -157,8 +157,8 @@
       margin: 0 auto;
       padding: 0 40px;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
-      gap: 40px 48px;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
       align-items: center;
     }
     .hero-left {
@@ -205,36 +205,6 @@
     .hero-booking-wrap {
       width: 100%;
       max-width: 640px;
-    }
-    .hero-right {
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      min-height: 280px;
-      pointer-events: none;
-    }
-    .hero-car-visual {
-      width: 100%;
-      max-width: 520px;
-      height: auto;
-      object-fit: contain;
-      object-position: bottom center;
-      filter: drop-shadow(0 24px 50px rgba(0,0,0,.55));
-      position: relative;
-      z-index: 1;
-    }
-    .hero-right::before {
-      content: '';
-      position: absolute;
-      bottom: -32px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120%;
-      height: 180px;
-      background: radial-gradient(ellipse at center, rgba(59,108,255,.22) 0%, transparent 65%);
-      filter: blur(24px);
-      z-index: 0;
     }
 
     /* â”€â”€ BOOKING BAR â”€â”€ */
@@ -425,7 +395,6 @@
         gap: 32px;
         padding: 0 32px;
       }
-      .hero-right { display: none; }
       .hero-booking-wrap { max-width: 100%; }
     }
 
@@ -1790,9 +1759,6 @@
     </button>
   </div>
       </div>
-    </div>
-    <div class="hero-right" aria-hidden="true">
-      <img class="hero-car-visual" src="/cars/audi-a6-2021-white.png" alt="" width="520" height="360" loading="lazy" />
     </div>
   </div>
 </section>
