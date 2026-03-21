@@ -4,7 +4,7 @@ import RRONFleet from "@/components/RRONFleet";
 export default function Page() {
   return (
     <main>
-      <RRONHero carBackgroundSrc="/hero.png?v=11" />
+      <RRONHero carBackgroundSrc="/hero.png?v=12" />
       <RRONFleet />
     </main>
   );
