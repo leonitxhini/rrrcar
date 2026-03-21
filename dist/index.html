@@ -159,14 +159,14 @@
     .hero-img {
       position: absolute;
       inset: 0;
-      background: url('/hero.png?v=13') center center / contain no-repeat;
+      background: url('/hero.png?v=14') center center / contain no-repeat;
       opacity: 1;
       image-rendering: -webkit-optimize-contrast;
     }
-    /* Nur Handy: Motiv deutlich größer (wie früher „mehr Bild“) */
+    /* Nur Handy: Motiv größer skaliert (1.2) */
     @media (max-width: 768px) {
       .hero-img {
-        transform: scale(1.14);
+        transform: scale(1.2);
         transform-origin: center center;
       }
     }
