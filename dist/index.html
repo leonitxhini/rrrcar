@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -999,6 +999,9 @@
       section { padding: 44px 0; }
       section.google-rating-strip { padding: 16px 0 !important; }
       .google-rating-inner { padding-left: 16px !important; padding-right: 16px !important; }
+      .google-maps-embed-wrap { padding-left: 16px; padding-right: 16px; }
+      .google-maps-embed-wrap iframe { height: 320px; }
+      .google-reviews-cta-wrap { padding-left: 16px; padding-right: 16px; }
       .sec-header, .cat-grid, .how-grid, .fleet-grid, .fleet-home-cta, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 16px; padding-right: 16px; }
 
       /* Hero – taller on mobile so image is visible */
@@ -1137,7 +1140,7 @@
       .hero-content h1 { font-size: 28px; }
       .booking-bar { margin: 0 8px 16px; }
       section { padding: 36px 0; }
-      .sec-header, .cat-grid, .how-grid, .fleet-grid, .fleet-home-cta, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 14px; padding-right: 14px; }
+      .sec-header, .cat-grid, .how-grid, .fleet-grid, .fleet-home-cta, .google-maps-embed-wrap, .google-reviews-cta-wrap, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 14px; padding-right: 14px; }
       .car-card {
         flex: 0 0 92%;
         max-width: 92%;
@@ -1369,6 +1372,42 @@
   </div>
   <div class="fleet-home-cta">
     <a href="/fleet/" class="see-all">View all vehicles &amp; prices <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- GOOGLE REVIEWS (after Our Fleet) — map + link to original reviews on Google -->
+<section id="google-reviews" class="google-reviews-section">
+  <div class="section-label-wrap" style="text-align:center;">
+    <span class="section-eyebrow">Verified on Google</span>
+    <h2 class="sec-title">Google Reviews</h2>
+    <div class="google-reviews-summary-bar" aria-label="Google rating summary">
+      <i class="fab fa-google" aria-hidden="true"></i>
+      <span class="google-reviews-rating-num">5.0</span>
+      <span class="google-review-stars-sm" aria-hidden="true">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </span>
+      <span class="google-reviews-count">· 21 reviews · Rent A Car – RRON, Ferizaj</span>
+    </div>
+    <p class="google-reviews-intro">
+      Read the <strong>original reviews</strong> on Google Maps. The map below shows the official listing — open it in Google to read every review in full.
+    </p>
+  </div>
+  <div class="google-maps-embed-wrap">
+    <iframe
+      title="Rent A Car – RRON, Emin Duraku — Google Maps"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?q=Rent+A+Car+RRON+Ferizaj&output=embed&hl=en&z=17"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div class="google-reviews-cta-wrap">
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=Rent+A+Car+-+RRON&query_place_id=ChIJzRvWjsp_VBMR05_lAniKJOg&hl=en"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="see-all"
+    >Open all reviews on Google <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
@@ -1731,7 +1770,7 @@
     const navbar = document.getElementById('navbar');
     navbar.classList.toggle('scrolled', window.scrollY > 60);
 
-    const sections = ['hero','fleet','how','services','locations','faq','contact'];
+    const sections = ['hero','fleet','google-reviews','how','services','locations','faq','contact'];
     let current = 'hero';
     sections.forEach(id => {
       const el = document.getElementById(id);

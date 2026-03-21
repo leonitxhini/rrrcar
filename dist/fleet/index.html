@@ -415,72 +415,6 @@
       padding: 20px 0 !important;
     }
 
-    /* Google Rezensionen (unter Our Fleet) */
-    .google-reviews-section {
-      background: var(--light);
-      border-top: 1px solid #eef0f6;
-    }
-    .google-reviews-intro {
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto 28px;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.65;
-    }
-    .google-reviews-intro strong { color: #111; font-weight: 800; }
-    .google-reviews-summary-bar {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px 14px;
-      margin: 0 auto 20px;
-      padding: 12px 20px;
-      border-radius: 999px;
-      background: #fff;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 18px rgba(0,0,0,.06);
-    }
-    .google-reviews-summary-bar .fab.fa-google {
-      font-size: 1.25rem;
-      color: #4285f4;
-    }
-    .google-reviews-rating-num {
-      font-size: 1.35rem;
-      font-weight: 900;
-      color: #111;
-      letter-spacing: -0.02em;
-    }
-    .google-review-stars-sm {
-      color: #fbbc04;
-      font-size: 0.82rem;
-      letter-spacing: 2px;
-    }
-    .google-reviews-count {
-      font-size: 14px;
-      font-weight: 600;
-      color: #666;
-    }
-    .google-maps-embed-wrap {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 40px 8px;
-    }
-    .google-maps-embed-wrap iframe {
-      width: 100%;
-      height: 420px;
-      border: 0;
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(0,0,0,.08);
-    }
-    .google-reviews-cta-wrap {
-      text-align: center;
-      padding: 16px 40px 0;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
     /* â”€â”€ SECTIONS COMMON â”€â”€ */
     section { padding: 80px 0; }
     .section-inner,
@@ -1431,9 +1365,6 @@
       section { padding: 44px 0; }
       section.google-rating-strip { padding: 16px 0 !important; }
       .google-rating-inner { padding-left: 16px !important; padding-right: 16px !important; }
-      .google-maps-embed-wrap { padding-left: 16px; padding-right: 16px; }
-      .google-maps-embed-wrap iframe { height: 320px; }
-      .google-reviews-cta-wrap { padding-left: 16px; padding-right: 16px; }
       .sec-header, .cat-grid, .how-grid, .fleet-grid, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 16px; padding-right: 16px; }
 
       /* Hero – taller on mobile so image is visible */
@@ -2146,43 +2077,6 @@
     </div>
 
   </div>
-  </div>
-</section>
-
-<!-- GOOGLE REVIEWS (after Our Fleet) — live map + link to original reviews on Google -->
-<section id="google-reviews" class="google-reviews-section">
-  <div class="section-label-wrap" style="text-align:center;">
-    <span class="section-eyebrow">Verified on Google</span>
-    <h2 class="sec-title">Google Reviews</h2>
-    <div class="google-reviews-summary-bar" aria-label="Google rating summary">
-      <i class="fab fa-google" aria-hidden="true"></i>
-      <span class="google-reviews-rating-num">5.0</span>
-      <span class="google-review-stars-sm" aria-hidden="true">
-        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-      </span>
-      <span class="google-reviews-count">· 21 reviews · Rent A Car – RRON, Ferizaj</span>
-    </div>
-    <p class="google-reviews-intro">
-      Read the <strong>original reviews</strong> on Google Maps. The map below shows the official listing — open it in Google to read every review in full.
-    </p>
-  </div>
-  <div class="google-maps-embed-wrap">
-    <!-- Official listing: place_id ChIJzRvWjsp_VBMR05_lAniKJOg — Google’s supported embed (?q=…&output=embed). To use Share → Embed “pb=” code instead, replace src below. -->
-    <iframe
-      title="Rent A Car – RRON, Emin Duraku — Google Maps"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.google.com/maps?q=Rent+A+Car+RRON+Ferizaj&output=embed&hl=en&z=17"
-      allowfullscreen
-    ></iframe>
-  </div>
-  <div class="google-reviews-cta-wrap">
-    <a
-      href="https://www.google.com/maps/search/?api=1&query=Rent+A+Car+-+RRON&query_place_id=ChIJzRvWjsp_VBMR05_lAniKJOg&hl=en"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="see-all"
-    >Open all reviews on Google <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
