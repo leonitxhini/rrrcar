@@ -2,190 +2,207 @@ import * as React from "react";
 import {
   Calendar,
   Clock,
-  Car,
-  CreditCard,
-  Globe,
+  Infinity,
   MapPin,
+  MessageCircle,
   Plane,
   Search,
-  Zap,
 } from "lucide-react";
 
 type RRONHeroProps = {
   pickupPlaceholder?: string;
   dropoffPlaceholder?: string;
+  /** Full-bleed hero background (e.g. /hero.png) */
   carBackgroundSrc?: string;
-  announcementText?: string;
+  /** Optional product shot for the right column (desktop) */
+  carImageSrc?: string;
 };
 
+const fieldShell =
+  "rounded-2xl border border-white/10 bg-white/[0.07] px-4 py-3.5 backdrop-blur-sm transition-colors focus-within:border-white/25 focus-within:bg-white/[0.1]";
+
 export default function RRONHero({
-  pickupPlaceholder = "Pickup location",
+  pickupPlaceholder = "Pick-up location",
   dropoffPlaceholder = "Drop-off location",
-  carBackgroundSrc,
-  announcementText = "🚗 Unlimited KM • 🌍 Balkan Travel • 💸 0€ Extra Fees",
+  carBackgroundSrc = "/hero.png?v=3",
+  carImageSrc = "/cars/audi-a6-2021-white.png",
 }: RRONHeroProps) {
   return (
-    <section className="relative min-h-[100svh] bg-gradient-to-b from-slate-50 via-white to-slate-100">
-      <div className="absolute inset-0 overflow-hidden">
-        {carBackgroundSrc ? (
-          <img
-            src={carBackgroundSrc}
-            alt=""
-            aria-hidden="true"
-            className="h-full w-full object-cover opacity-10"
-            loading="eager"
-          />
-        ) : null}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-200/40 via-slate-200/10 to-transparent" />
+    <section className="relative min-h-[100svh] overflow-hidden bg-[#06080f]">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <img
+          src={carBackgroundSrc}
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover object-center"
+          loading="eager"
+          decoding="async"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[#04060c]/95 via-[#050816]/78 to-[#050816]/35"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-[#04060c]/90 via-transparent to-[#04060c]/25"
+          aria-hidden="true"
+        />
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 top-[-6%] flex justify-center">
-        <div className="select-none text-[clamp(72px,12vw,170px)] font-black tracking-tight text-slate-900/10 blur-3xl">
-          RRON
-        </div>
-      </div>
-
-      <div className="sticky top-0 z-50 h-[50px] bg-white/80 backdrop-blur-xl shadow-sm">
-        <div className="mx-auto flex h-full max-w-6xl items-center justify-center px-6">
-          <p className="text-center text-[13px] font-medium leading-none text-slate-700">
-            {announcementText}
-          </p>
-        </div>
-      </div>
-
-      <div className="relative mx-auto flex h-full max-w-6xl flex-col px-6 pb-10 pt-[110px] md:pb-0">
-        <div className="flex flex-1 flex-col justify-end pb-8 md:pb-16">
-          <div className="max-w-2xl text-center md:text-left">
-            <h1 className="text-[clamp(38px,6vw,64px)] font-black leading-[1.02] tracking-tight text-slate-900">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1280px] flex-col px-5 pb-12 pt-24 sm:px-6 sm:pt-28 lg:pb-16 lg:pt-32">
+        <div className="grid flex-1 items-center gap-10 lg:grid-cols-12 lg:gap-12 xl:gap-16">
+          {/* Left: copy + trust + booking */}
+          <div className="flex flex-col justify-center lg:col-span-7">
+            <h1 className="text-[clamp(2.25rem,5.5vw,3.75rem)] font-black leading-[1.05] tracking-tight text-white">
               Premium car rental
             </h1>
-            <p className="mt-4 text-[15px] leading-relaxed text-slate-600 md:text-[16px]">
-              Premium Fahrzeuge, faire Preise und stressfreies Buchen für deine Balkan-Reise.
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/75 sm:text-[16px] md:text-[17px]">
+              Premium cars. Easy booking. Reliable service across the Balkans.
             </p>
-          </div>
 
-          <div className="relative -mt-14 md:-mt-20">
-            <div className="rounded-2xl border border-slate-200 bg-white/75 px-4 py-5 shadow-2xl backdrop-blur-xl">
-              <div className="grid gap-4 md:grid-cols-2 md:gap-5">
-                <div className="rounded-xl bg-slate-50/70 p-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4 text-slate-600/70" />
-                    <label className="text-xs font-semibold text-slate-700">
-                      {pickupPlaceholder}
-                    </label>
-                  </div>
-                  <input
-                    className="mt-3 w-full bg-transparent text-sm text-slate-900 placeholder:text-slate-400 outline-none"
-                    type="text"
-                    placeholder={pickupPlaceholder}
-                    name="pickup"
-                    autoComplete="off"
-                  />
-                </div>
-
-                <div className="rounded-xl bg-slate-50/70 p-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-2">
-                    <Plane className="h-4 w-4 text-slate-600/70" />
-                    <label className="text-xs font-semibold text-slate-700">
-                      {dropoffPlaceholder}
-                    </label>
-                  </div>
-                  <input
-                    className="mt-3 w-full bg-transparent text-sm text-slate-900 placeholder:text-slate-400 outline-none"
-                    type="text"
-                    placeholder={dropoffPlaceholder}
-                    name="dropoff"
-                    autoComplete="off"
-                  />
-                </div>
-
-                <div className="rounded-xl bg-slate-50/70 p-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4 text-slate-600/70" />
-                    <label className="text-xs font-semibold text-slate-700">Pick-up date</label>
-                  </div>
-                  <input
-                    className="mt-3 w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400"
-                    type="date"
-                    name="pickupDate"
-                  />
-                </div>
-
-                <div className="rounded-xl bg-slate-50/70 p-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-slate-600/70" />
-                    <label className="text-xs font-semibold text-slate-700">Pick-up time</label>
-                  </div>
-                  <input
-                    className="mt-3 w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400"
-                    type="time"
-                    name="pickupTime"
-                    defaultValue="10:00"
-                  />
-                </div>
-
-                <div className="rounded-xl bg-slate-50/70 p-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4 text-slate-600/70" />
-                    <label className="text-xs font-semibold text-slate-700">Drop-off date</label>
-                  </div>
-                  <input
-                    className="mt-3 w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400"
-                    type="date"
-                    name="dropoffDate"
-                  />
-                </div>
-
-                <div className="rounded-xl bg-slate-50/70 p-4 backdrop-blur-sm">
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-slate-600/70" />
-                    <label className="text-xs font-semibold text-slate-700">Drop-off time</label>
-                  </div>
-                  <input
-                    className="mt-3 w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400"
-                    type="time"
-                    name="dropoffTime"
-                    defaultValue="10:00"
-                  />
-                </div>
-              </div>
-
-              <div className="mt-4">
-                <button
-                  type="button"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 px-6 py-4 text-sm font-bold text-white shadow-[0_10px_30px_rgba(59,110,245,.35)] transition duration-200 hover:translate-y-[-1px] hover:shadow-[0_16px_40px_rgba(59,110,245,.48)] md:py-4"
-                >
-                  <Search className="h-4 w-4" />
-                  Search Vehicles <span aria-hidden="true">→</span>
-                </button>
-              </div>
+            {/* Trust / USP — subtle, between subheadline and bar */}
+            <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-3 border-l-2 border-white/20 pl-4 text-[12px] font-semibold uppercase tracking-[0.18em] text-white/55 sm:text-[13px]">
+              <span className="inline-flex items-center gap-2">
+                <Infinity className="h-4 w-4 shrink-0 text-white/50" aria-hidden />
+                Unlimited KM
+              </span>
+              <span className="inline-flex h-3 w-px bg-white/15" aria-hidden />
+              <span className="inline-flex items-center gap-2">
+                <Plane className="h-4 w-4 shrink-0 text-white/50" aria-hidden />
+                Airport pickup
+              </span>
+              <span className="inline-flex h-3 w-px bg-white/15" aria-hidden />
+              <span className="inline-flex items-center gap-2">
+                <MessageCircle className="h-4 w-4 shrink-0 text-white/50" aria-hidden />
+                Fast WhatsApp booking
+              </span>
             </div>
 
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-4 md:gap-10">
-              <div className="flex items-center gap-3 rounded-full bg-white/60 px-5 py-3 backdrop-blur-sm shadow-sm">
-                <Car className="h-5 w-5 text-slate-700/80" />
-                <p className="text-[13px] font-semibold text-slate-700">
-                  🚗 Unlimited Kilometers
-                </p>
+            {/* Booking bar — floating glass, max width, integrated */}
+            <div className="mt-8 w-full max-w-[640px]">
+              <div
+                className="rounded-[28px] border border-white/18 bg-white/[0.08] p-4 shadow-[0_20px_60px_-12px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.06)_inset] backdrop-blur-2xl sm:p-5"
+                role="search"
+                aria-label="Book a vehicle"
+              >
+                <div className="grid gap-3 sm:grid-cols-2 sm:gap-3.5">
+                  <div className={fieldShell}>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-4 w-4 text-sky-300/90" aria-hidden />
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-white/55">
+                        {pickupPlaceholder}
+                      </label>
+                    </div>
+                    <input
+                      className="mt-2.5 w-full border-0 bg-transparent text-[15px] font-medium text-white placeholder:text-white/35 outline-none placeholder:font-normal"
+                      type="text"
+                      placeholder={pickupPlaceholder}
+                      name="pickup"
+                      autoComplete="off"
+                    />
+                  </div>
+
+                  <div className={fieldShell}>
+                    <div className="flex items-center gap-2">
+                      <Plane className="h-4 w-4 text-sky-300/90" aria-hidden />
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-white/55">
+                        {dropoffPlaceholder}
+                      </label>
+                    </div>
+                    <input
+                      className="mt-2.5 w-full border-0 bg-transparent text-[15px] font-medium text-white placeholder:text-white/35 outline-none placeholder:font-normal"
+                      type="text"
+                      placeholder={dropoffPlaceholder}
+                      name="dropoff"
+                      autoComplete="off"
+                    />
+                  </div>
+
+                  <div className={fieldShell}>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="h-4 w-4 text-sky-300/90" aria-hidden />
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-white/55">
+                        Pick-up date
+                      </label>
+                    </div>
+                    <input
+                      className="mt-2.5 w-full border-0 bg-transparent text-[15px] font-medium text-white outline-none [color-scheme:dark]"
+                      type="date"
+                      name="pickupDate"
+                    />
+                  </div>
+
+                  <div className={fieldShell}>
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-4 w-4 text-sky-300/90" aria-hidden />
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-white/55">
+                        Pick-up time
+                      </label>
+                    </div>
+                    <input
+                      className="mt-2.5 w-full border-0 bg-transparent text-[15px] font-medium text-white outline-none [color-scheme:dark]"
+                      type="time"
+                      name="pickupTime"
+                      defaultValue="10:00"
+                    />
+                  </div>
+
+                  <div className={fieldShell}>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="h-4 w-4 text-sky-300/90" aria-hidden />
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-white/55">
+                        Drop-off date
+                      </label>
+                    </div>
+                    <input
+                      className="mt-2.5 w-full border-0 bg-transparent text-[15px] font-medium text-white outline-none [color-scheme:dark]"
+                      type="date"
+                      name="dropoffDate"
+                    />
+                  </div>
+
+                  <div className={fieldShell}>
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-4 w-4 text-sky-300/90" aria-hidden />
+                      <label className="text-[11px] font-bold uppercase tracking-wider text-white/55">
+                        Drop-off time
+                      </label>
+                    </div>
+                    <input
+                      className="mt-2.5 w-full border-0 bg-transparent text-[15px] font-medium text-white outline-none [color-scheme:dark]"
+                      type="time"
+                      name="dropoffTime"
+                      defaultValue="10:00"
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#3b6cff] via-[#4f7cff] to-[#6366f1] px-6 py-4 text-[15px] font-bold tracking-wide text-white shadow-[0_12px_40px_-8px_rgba(59,108,255,0.55),0_4px_14px_-4px_rgba(0,0,0,0.4)] transition duration-200 hover:brightness-110 active:translate-y-px sm:py-[1.125rem] sm:text-[16px]"
+                  >
+                    <Search className="h-5 w-5 opacity-95" aria-hidden />
+                    Search vehicles
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center gap-3 rounded-full bg-white/60 px-5 py-3 backdrop-blur-sm shadow-sm">
-                <Globe className="h-5 w-5 text-slate-700/80" />
-                <p className="text-[13px] font-semibold text-slate-700">
-                  🌍 Cross-Border Driving
-                </p>
-              </div>
-              <div className="flex items-center gap-3 rounded-full bg-white/60 px-5 py-3 backdrop-blur-sm shadow-sm">
-                <CreditCard className="h-5 w-5 text-slate-700/80" />
-                <p className="text-[13px] font-semibold text-slate-700">
-                  💳 No Hidden Fees
-                </p>
-              </div>
-              <div className="flex items-center gap-3 rounded-full bg-white/60 px-5 py-3 backdrop-blur-sm shadow-sm">
-                <Zap className="h-5 w-5 text-slate-700/80" />
-                <p className="text-[13px] font-semibold text-slate-700">
-                  ⚡ Instant Booking
-                </p>
-              </div>
+            </div>
+          </div>
+
+          {/* Right: car visual only (desktop) */}
+          <div className="relative hidden min-h-[280px] lg:col-span-5 lg:flex lg:min-h-[420px] lg:items-end lg:justify-center">
+            <div className="pointer-events-none relative w-full max-w-lg select-none">
+              <div
+                className="absolute -bottom-8 left-1/2 h-48 w-[120%] -translate-x-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(59,108,255,0.22),transparent_60%)] blur-2xl"
+                aria-hidden
+              />
+              <img
+                src={carImageSrc}
+                alt="Premium rental vehicle"
+                className="relative z-[1] w-full object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.55)]"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -193,4 +210,3 @@ export default function RRONHero({
     </section>
   );
 }
-
