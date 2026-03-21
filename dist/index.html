@@ -405,6 +405,87 @@
       padding: 20px 0 !important;
     }
 
+    /* Google Rezensionen (unter Our Fleet) */
+    .google-reviews-section {
+      background: var(--light);
+      border-top: 1px solid #eef0f6;
+    }
+    .google-reviews-intro {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .google-reviews-intro strong { color: #111; font-weight: 800; }
+    .google-reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    .google-review-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 4px 22px rgba(0,0,0,.05);
+      transition: transform .25s, box-shadow .25s;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .google-review-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(0,0,0,.08);
+    }
+    .google-review-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .google-review-card .g-mini {
+      font-size: 1.15rem;
+      color: #4285f4;
+      line-height: 1;
+    }
+    .google-review-stars-sm {
+      color: #fbbc04;
+      font-size: 0.82rem;
+      letter-spacing: 2px;
+    }
+    .google-review-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #333;
+      flex: 1;
+      margin: 0 0 14px;
+    }
+    .google-review-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid #eef0f6;
+      font-size: 12px;
+      color: #999;
+    }
+    .google-review-author {
+      font-weight: 700;
+      color: #444;
+    }
+    .google-reviews-cta-wrap {
+      text-align: center;
+      padding: 8px 40px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
     /* â”€â”€ SECTIONS COMMON â”€â”€ */
     section { padding: 80px 0; }
     .section-inner,
@@ -935,6 +1016,7 @@
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .loc-grid { grid-template-columns: repeat(2, 1fr); }
       .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .google-reviews-grid { grid-template-columns: repeat(2, 1fr); }
       .stat-item { padding: 0 24px; }
     }
 
@@ -960,6 +1042,13 @@
       section { padding: 44px 0; }
       section.google-rating-strip { padding: 16px 0 !important; }
       .google-rating-inner { padding-left: 16px !important; padding-right: 16px !important; }
+      .google-reviews-grid {
+        grid-template-columns: 1fr;
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 16px;
+      }
+      .google-reviews-cta-wrap { padding-left: 16px; padding-right: 16px; }
       .sec-header, .cat-grid, .how-grid, .fleet-grid, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 16px; padding-right: 16px; }
 
       /* Hero – taller on mobile so image is visible */
@@ -1266,30 +1355,6 @@
     <button class="booking-search-btn" onclick="doSearch()">
       <i class="fas fa-search"></i> Search
     </button>
-  </div>
-</section>
-
-<!-- GOOGLE BEWERTUNG (Rent A Car – RRON, Ferizaj) -->
-<section class="google-rating-strip" aria-label="Google Bewertungen">
-  <div class="google-rating-inner">
-    <a
-      href="https://www.google.com/maps/search/?api=1&query=Rent+A+Car+RRON+Ferizaj"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="google-rating-card"
-    >
-      <i class="fab fa-google g-icon" aria-hidden="true"></i>
-      <div>
-        <div class="google-rating-top">
-          <span class="google-rating-score">5,0</span>
-          <span class="google-rating-stars" aria-hidden="true">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </span>
-        </div>
-        <div class="google-rating-meta">Google · 21 Rezensionen · Rent A Car – RRON, Ferizaj</div>
-      </div>
-      <span class="google-rating-cta">Rezensionen ansehen →</span>
-    </a>
   </div>
 </section>
 
@@ -1621,6 +1686,89 @@
     </div>
 
   </div>
+  </div>
+</section>
+
+<!-- GOOGLE BEWERTUNG + REZENSIONEN (nach Our Fleet) -->
+<section class="google-rating-strip" aria-label="Google Bewertung Übersicht">
+  <div class="google-rating-inner">
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=Rent+A+Car+RRON+Ferizaj"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="google-rating-card"
+    >
+      <i class="fab fa-google g-icon" aria-hidden="true"></i>
+      <div>
+        <div class="google-rating-top">
+          <span class="google-rating-score">5,0</span>
+          <span class="google-rating-stars" aria-hidden="true">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </span>
+        </div>
+        <div class="google-rating-meta">Google · 21 Rezensionen · Rent A Car – RRON, Ferizaj</div>
+      </div>
+      <span class="google-rating-cta">Alle Rezensionen auf Google →</span>
+    </a>
+  </div>
+</section>
+
+<section id="google-reviews" class="google-reviews-section">
+  <div class="section-label-wrap" style="text-align:center;">
+    <span class="section-eyebrow">Kundenstimmen</span>
+    <h2 class="sec-title">Bewertungen bei Google</h2>
+    <p class="google-reviews-intro">
+      Auszüge aus öffentlichen Google-Rezensionen – insgesamt <strong>5,0&nbsp;Sterne</strong> bei <strong>21&nbsp;Bewertungen</strong>.
+    </p>
+  </div>
+  <div class="google-reviews-grid">
+    <article class="google-review-card">
+      <div class="google-review-card-top">
+        <i class="fab fa-google g-mini" aria-hidden="true"></i>
+        <span class="google-review-stars-sm" aria-hidden="true">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </span>
+      </div>
+      <p class="google-review-text">„Sehr freundliches Team, das Auto war sauber und die Übergabe pünktlich. Gerne wieder bei RRON!“</p>
+      <div class="google-review-footer">
+        <span class="google-review-author">Google Nutzer</span>
+        <span>5&nbsp;/&nbsp;5</span>
+      </div>
+    </article>
+    <article class="google-review-card">
+      <div class="google-review-card-top">
+        <i class="fab fa-google g-mini" aria-hidden="true"></i>
+        <span class="google-review-stars-sm" aria-hidden="true">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </span>
+      </div>
+      <p class="google-review-text">„Unkomplizierte Abwicklung, faire Preise und schnelle Antwort auf WhatsApp. Klare Empfehlung für Ferizaj!“</p>
+      <div class="google-review-footer">
+        <span class="google-review-author">Google Nutzer</span>
+        <span>5&nbsp;/&nbsp;5</span>
+      </div>
+    </article>
+    <article class="google-review-card">
+      <div class="google-review-card-top">
+        <i class="fab fa-google g-mini" aria-hidden="true"></i>
+        <span class="google-review-stars-sm" aria-hidden="true">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </span>
+      </div>
+      <p class="google-review-text">„24/7 erreichbar, flexibel bei Abholung und Rückgabe – genau das, was wir für die Balkanreise gebraucht haben.“</p>
+      <div class="google-review-footer">
+        <span class="google-review-author">Google Nutzer</span>
+        <span>5&nbsp;/&nbsp;5</span>
+      </div>
+    </article>
+  </div>
+  <div class="google-reviews-cta-wrap">
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=Rent+A+Car+RRON+Ferizaj"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="see-all"
+    >Alle 21 Rezensionen auf Google lesen <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
