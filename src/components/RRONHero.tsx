@@ -22,26 +22,24 @@ const fieldShell =
 export default function RRONHero({
   pickupPlaceholder = "Pick-up location",
   dropoffPlaceholder = "Drop-off location",
-  carBackgroundSrc = "/hero.png?v=9",
+  carBackgroundSrc = "/hero.png?v=10",
 }: RRONHeroProps) {
   return (
     <section className="relative overflow-x-clip overflow-y-visible bg-[#06080f]">
-      {/* Background: Desktop leicht „herauszoomen“ (größere Fläche + overflow clip) */}
+      {/* Vollständiges Motiv (contain) — Logo im Bild bleibt sichtbar */}
       <div className="absolute inset-0">
         <div
           className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
           aria-hidden="true"
         >
-          <div className="absolute inset-0 md:-inset-[14%]">
-            <img
-              src={carBackgroundSrc}
-              alt=""
-              aria-hidden="true"
-              className="h-full w-full object-cover object-center md:object-[center_38%]"
-              loading="eager"
-              decoding="async"
-            />
-          </div>
+          <img
+            src={carBackgroundSrc}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-contain object-center"
+            loading="eager"
+            decoding="async"
+          />
         </div>
         <div
           className="absolute inset-0 z-[1] bg-gradient-to-r from-[#04060c]/95 via-[#050816]/78 to-[#050816]/35 md:from-[#04060c]/78 md:via-[#050816]/62 md:to-[#050816]/32"

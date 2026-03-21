@@ -162,7 +162,7 @@
     .hero-img {
       position: absolute;
       inset: 0;
-      background: url('/hero.png?v=9') center center / cover no-repeat;
+      background: url('/hero.png?v=10') center center / contain no-repeat;
       opacity: 1;
       image-rendering: -webkit-optimize-contrast;
     }
@@ -174,11 +174,6 @@
         linear-gradient(to top, rgba(4,6,12,.88) 0%, transparent 55%);
     }
     @media (min-width: 769px) {
-      .hero-img {
-        inset: -14%;
-        background-size: cover;
-        background-position: center 38%;
-      }
       .hero-overlay {
         background:
           linear-gradient(to right, rgba(4,6,12,.78) 0%, rgba(5,8,22,.62) 48%, rgba(5,8,22,.32) 100%),

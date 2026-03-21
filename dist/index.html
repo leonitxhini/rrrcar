@@ -145,7 +145,7 @@
       justify-content: flex-start;
       padding: 96px 0 40px;
     }
-    /* Hintergrund leicht „herauszoomen“: größere Fläche + clip (nur Desktop) */
+    /* Vollständiges Motiv sichtbar (Logo im Bild) — contain statt cover */
     .hero-bg-clip {
       position: absolute;
       inset: 0;
@@ -156,7 +156,7 @@
     .hero-img {
       position: absolute;
       inset: 0;
-      background: url('/hero.png?v=9') center center / cover no-repeat;
+      background: url('/hero.png?v=10') center center / contain no-repeat;
       opacity: 1;
       image-rendering: -webkit-optimize-contrast;
     }
@@ -168,11 +168,6 @@
         linear-gradient(to top, rgba(4,6,12,.88) 0%, transparent 55%);
     }
     @media (min-width: 769px) {
-      .hero-img {
-        inset: -14%;
-        background-size: cover;
-        background-position: center 38%;
-      }
       /* Overlay etwas transparenter, damit Logo/Text im hero.png durchscheint */
       .hero-overlay {
         background:
