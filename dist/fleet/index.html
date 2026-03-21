@@ -128,10 +128,15 @@
     /* â”€â”€ HERO â”€â”€ */
     #hero {
       margin-top: 0;
-      position: relative; overflow: visible;
-      height: 100vh; min-height: 620px;
-      background: #1a1a2e;
-      display: flex; flex-direction: column; justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      min-height: 100svh;
+      background: #06080f;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 96px 0 48px;
     }
     .hero-img {
       position: absolute; inset: 0;
@@ -142,41 +147,101 @@
     .hero-overlay {
       position: absolute; inset: 0;
       background:
-        linear-gradient(to right, rgba(8,16,50,.75) 28%, rgba(8,16,50,.1) 70%),
-        linear-gradient(to top, rgba(8,16,50,.82) 0%, transparent 50%);
+        linear-gradient(to right, rgba(4,6,12,.94) 0%, rgba(5,8,22,.78) 42%, rgba(5,8,22,.38) 100%),
+        linear-gradient(to top, rgba(4,6,12,.88) 0%, transparent 55%);
     }
-    .hero-inner {
-      position: relative; z-index: 1;
+    .hero-shell {
+      position: relative; z-index: 2;
       width: 100%;
-      display: flex; align-items: flex-end; justify-content: space-between;
-      padding: 0 40px 36px;
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      gap: 40px;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+      gap: 40px 48px;
+      align-items: center;
     }
-    .hero-content {
-      flex: 0 0 auto;
-      max-width: 500px;
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      min-width: 0;
     }
+    .hero-content { max-width: 560px; }
     .hero-content h1 {
-      font-size: clamp(36px, 5.5vw, 68px);
+      font-size: clamp(36px, 5.5vw, 64px);
       font-weight: 900; color: #fff;
       line-height: 1.05;
+      margin: 0;
     }
-    .hero-desc {
-      flex: 0 0 auto;
-      max-width: 320px;
-      font-size: 13px; color: rgba(255,255,255,.6);
-      line-height: 1.75;
-      align-self: flex-end;
-      padding-bottom: 4px;
+    .hero-sub {
+      margin: 16px 0 0;
+      font-size: clamp(15px, 1.6vw, 17px);
+      line-height: 1.65;
+      color: rgba(255,255,255,.78);
+      font-weight: 500;
+      max-width: 34rem;
+    }
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 20px;
+      margin-top: 4px;
+      padding-left: 14px;
+      border-left: 2px solid rgba(255,255,255,.22);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.52);
+    }
+    .hero-trust span { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+    .hero-trust i { font-size: 13px; opacity: .75; color: rgba(255,255,255,.45); }
+    .hero-trust .hero-trust-sep {
+      width: 1px; height: 12px; background: rgba(255,255,255,.14);
+      display: inline-block;
+    }
+    .hero-booking-wrap {
+      width: 100%;
+      max-width: 640px;
+    }
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      min-height: 280px;
+      pointer-events: none;
+    }
+    .hero-car-visual {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(0 24px 50px rgba(0,0,0,.55));
+      position: relative;
+      z-index: 1;
+    }
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      bottom: -32px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120%;
+      height: 180px;
+      background: radial-gradient(ellipse at center, rgba(59,108,255,.22) 0%, transparent 65%);
+      filter: blur(24px);
+      z-index: 0;
     }
 
     /* â”€â”€ BOOKING BAR â”€â”€ */
     .booking-bar {
       position: relative; z-index: 2;
-      margin: 0 40px 44px;
-      width: calc(100% - 80px);
+      margin: 0;
+      width: 100%;
       border-radius: 22px;
       box-shadow: 0 24px 64px rgba(0,0,0,.28), 0 2px 8px rgba(0,0,0,.08);
       background: rgba(255,255,255,0.97);
@@ -184,6 +249,35 @@
       padding: 10px;
       display: flex; align-items: stretch; gap: 0;
     }
+    .booking-bar--glass {
+      border-radius: 28px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow:
+        0 20px 60px -12px rgba(0,0,0,.65),
+        inset 0 0 0 1px rgba(255,255,255,.06);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 12px;
+    }
+    .booking-bar--glass .booking-field:hover { background: rgba(255,255,255,.08); }
+    .booking-bar--glass .booking-field.active { background: rgba(255,255,255,.12); }
+    .booking-bar--glass .booking-field + .booking-field::before {
+      background: rgba(255,255,255,.12);
+    }
+    .booking-bar--glass .booking-field-icon {
+      background: rgba(255,255,255,.12);
+      color: #93c5fd;
+    }
+    .booking-bar--glass .booking-field.active .booking-field-icon {
+      background: linear-gradient(135deg, #3b6cff, #6366f1);
+      color: #fff;
+    }
+    .booking-bar--glass .booking-field label { color: rgba(255,255,255,.5); }
+    .booking-bar--glass .booking-field-value { color: #fff; }
+    .booking-bar--glass .booking-field-value.placeholder { color: rgba(255,255,255,.4); }
+    .booking-bar--glass .booking-field-chevron { color: rgba(255,255,255,.35); }
+    .booking-bar--glass .booking-field.active .booking-field-chevron { color: #93c5fd; }
     .booking-field {
       flex: 1; position: relative;
       padding: 14px 20px;
@@ -312,6 +406,28 @@
       box-shadow: 0 8px 28px rgba(59,110,245,.5);
     }
     .booking-search-btn i { font-size: 14px; }
+    .booking-bar--glass .booking-search-btn {
+      padding: 0 28px;
+      border-radius: 16px;
+      font-size: 16px;
+      min-height: 52px;
+      background: linear-gradient(135deg, #3b6cff 0%, #4f7cff 45%, #6366f1 100%);
+      box-shadow: 0 12px 40px -8px rgba(59,108,255,.55), 0 4px 14px -4px rgba(0,0,0,.4);
+    }
+    .booking-bar--glass .booking-search-btn:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-shell {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 0 32px;
+      }
+      .hero-right { display: none; }
+      .hero-booking-wrap { max-width: 100%; }
+    }
 
     /* â”€â”€ STATS BAR â”€â”€ */
     .stats-bar {
@@ -430,7 +546,6 @@
     nav { max-width: 1200px; }
     .booking-bar { max-width: 1100px; margin-left: auto; margin-right: auto; }
     .stats-inner { max-width: 1200px; margin: 0 auto; }
-    .hero-inner { max-width: 1280px; margin-left: auto; margin-right: auto; width: 100%; }
     .sec-title {
       font-size: clamp(24px, 3vw, 36px);
       font-weight: 900; margin-bottom: 40px; letter-spacing: -.5px;
@@ -1367,39 +1482,35 @@
       .google-rating-inner { padding-left: 16px !important; padding-right: 16px !important; }
       .sec-header, .cat-grid, .how-grid, .fleet-grid, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 16px; padding-right: 16px; }
 
-      /* Hero – taller on mobile so image is visible */
+      /* Hero – mobile stack */
       #hero {
-        height: 100svh;
-        min-height: 700px;
-        justify-content: flex-end;
+        min-height: 100svh;
+        padding: 88px 0 28px;
+        justify-content: flex-start;
       }
-      /* Make image more visible on mobile */
       .hero-overlay {
         background:
-          linear-gradient(to top, rgba(6,12,40,.95) 0%, rgba(6,12,40,.4) 45%, rgba(6,12,40,.1) 100%);
+          linear-gradient(to top, rgba(4,6,12,.92) 0%, rgba(5,8,22,.55) 50%, rgba(5,8,22,.25) 100%);
       }
-      .hero-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-end;
-        padding: 0 16px 16px;
-        gap: 8px;
+      .hero-shell {
+        padding: 0 16px;
+        gap: 20px;
       }
       .hero-content h1 {
         font-size: 32px;
         line-height: 1.1;
       }
-      .hero-desc {
-        max-width: 100%;
-        font-size: 13px;
-        color: rgba(255,255,255,.7);
-        display: none; /* hide on small screens to reduce clutter */
+      .hero-sub { font-size: 14px; }
+      .hero-trust {
+        font-size: 9px;
+        letter-spacing: .12em;
+        gap: 8px 12px;
       }
 
       /* Booking Bar – 2x2 grid on mobile, everything visible */
       .booking-bar {
-        margin: 0 10px 20px;
-        width: calc(100% - 20px);
+        margin: 0;
+        width: 100%;
         box-sizing: border-box;
         border-radius: 16px;
         flex-direction: row;
@@ -1552,15 +1663,21 @@
 <section id="hero">
   <div class="hero-img"></div>
   <div class="hero-overlay"></div>
-  <div class="hero-inner">
-    <div class="hero-content">
-      <h1>Premium car<br>rental</h1>
-    </div>
-    <div class="hero-desc">
-      We want you to have a stress-free rental experience — simple booking, fair pricing, and convenient pick-up locations across the region.
-    </div>
-  </div>
-  <div class="booking-bar" id="bookingBar">
+  <div class="hero-shell">
+    <div class="hero-left">
+      <div class="hero-content">
+        <h1>Premium car<br>rental</h1>
+        <p class="hero-sub">Premium cars. Easy booking. Reliable service across the Balkans.</p>
+        <div class="hero-trust" aria-label="Highlights">
+          <span><i class="fas fa-road" aria-hidden="true"></i> Unlimited KM</span>
+          <span class="hero-trust-sep" aria-hidden="true"></span>
+          <span><i class="fas fa-plane-departure" aria-hidden="true"></i> Airport pickup</span>
+          <span class="hero-trust-sep" aria-hidden="true"></span>
+          <span><i class="fab fa-whatsapp" aria-hidden="true"></i> Fast WhatsApp booking</span>
+        </div>
+      </div>
+      <div class="hero-booking-wrap">
+  <div class="booking-bar booking-bar--glass" id="bookingBar">
 
     <!-- Pick Up -->
     <div class="booking-field" id="bf-pickup" onclick="toggleDD('dd-pickup', 'bf-pickup')">
@@ -1669,8 +1786,14 @@
     </div>
 
     <button class="booking-search-btn" onclick="doSearch()">
-      <i class="fas fa-search"></i> Search
+      <i class="fas fa-search"></i> Search vehicles
     </button>
+  </div>
+      </div>
+    </div>
+    <div class="hero-right" aria-hidden="true">
+      <img class="hero-car-visual" src="/cars/audi-a6-2021-white.png" alt="" width="520" height="360" loading="lazy" />
+    </div>
   </div>
 </section>
 
