@@ -405,7 +405,7 @@
       padding: 20px 0 !important;
     }
 
-    /* Google Rezensionen (unter Our Fleet) */
+    /* Google Reviews (vor Locations) */
     .google-reviews-section {
       background: var(--light);
       border-top: 1px solid #eef0f6;
@@ -1375,42 +1375,6 @@
   </div>
 </section>
 
-<!-- GOOGLE REVIEWS (after Our Fleet) — map + link to original reviews on Google -->
-<section id="google-reviews" class="google-reviews-section">
-  <div class="section-label-wrap" style="text-align:center;">
-    <span class="section-eyebrow">Verified on Google</span>
-    <h2 class="sec-title">Google Reviews</h2>
-    <div class="google-reviews-summary-bar" aria-label="Google rating summary">
-      <i class="fab fa-google" aria-hidden="true"></i>
-      <span class="google-reviews-rating-num">5.0</span>
-      <span class="google-review-stars-sm" aria-hidden="true">
-        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-      </span>
-      <span class="google-reviews-count">· 21 reviews · Rent A Car – RRON, Ferizaj</span>
-    </div>
-    <p class="google-reviews-intro">
-      Read the <strong>original reviews</strong> on Google Maps. The map below shows the official listing — open it in Google to read every review in full.
-    </p>
-  </div>
-  <div class="google-maps-embed-wrap">
-    <iframe
-      title="Rent A Car – RRON, Emin Duraku — Google Maps"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.google.com/maps?q=Rent+A+Car+RRON+Ferizaj&output=embed&hl=en&z=17"
-      allowfullscreen
-    ></iframe>
-  </div>
-  <div class="google-reviews-cta-wrap">
-    <a
-      href="https://www.google.com/maps/search/?api=1&query=Rent+A+Car+-+RRON&query_place_id=ChIJzRvWjsp_VBMR05_lAniKJOg&hl=en"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="see-all"
-    >Open all reviews on Google <i class="fas fa-arrow-right"></i></a>
-  </div>
-</section>
-
 
 <!-- HOW IT WORKS -->
 <section id="how">
@@ -1473,6 +1437,41 @@
   </div>
 </section>
 
+<!-- GOOGLE REVIEWS (before Locations) — map + link to original reviews on Google -->
+<section id="google-reviews" class="google-reviews-section">
+  <div class="section-label-wrap" style="text-align:center;">
+    <span class="section-eyebrow">Verified on Google</span>
+    <h2 class="sec-title">Google Reviews</h2>
+    <div class="google-reviews-summary-bar" aria-label="Google rating summary">
+      <i class="fab fa-google" aria-hidden="true"></i>
+      <span class="google-reviews-rating-num">5.0</span>
+      <span class="google-review-stars-sm" aria-hidden="true">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </span>
+      <span class="google-reviews-count">· 21 reviews · Rent A Car – RRON, Ferizaj</span>
+    </div>
+    <p class="google-reviews-intro">
+      Read the <strong>original reviews</strong> on Google Maps. The map below shows the official listing — open it in Google to read every review in full.
+    </p>
+  </div>
+  <div class="google-maps-embed-wrap">
+    <iframe
+      title="Rent A Car – RRON, Emin Duraku — Google Maps"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps?q=Rent+A+Car+RRON+Ferizaj&output=embed&hl=en&z=17"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div class="google-reviews-cta-wrap">
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=Rent+A+Car+-+RRON&query_place_id=ChIJzRvWjsp_VBMR05_lAniKJOg&hl=en"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="see-all"
+    >Open all reviews on Google <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
 
 <!-- LOCATIONS -->
 <section id="locations">
@@ -1770,7 +1769,7 @@
     const navbar = document.getElementById('navbar');
     navbar.classList.toggle('scrolled', window.scrollY > 60);
 
-    const sections = ['hero','fleet','google-reviews','how','services','locations','faq','contact'];
+    const sections = ['hero','fleet','how','services','google-reviews','locations','faq','contact'];
     let current = 'hero';
     sections.forEach(id => {
       const el = document.getElementById(id);
