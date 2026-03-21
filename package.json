@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && node scripts/prepare-vercel-dist.mjs",
+    "vercel-build": "node scripts/vercel-build.mjs",
     "start": "next start",
     "lint": "next lint"
   },

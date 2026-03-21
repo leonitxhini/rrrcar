@@ -1,6 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "echo \"Skipping Next build; deploying static dist from Git\"",
+  "framework": null,
+  "buildCommand": "node scripts/vercel-build.mjs",
   "installCommand": "npm install",
   "outputDirectory": "dist",
   "headers": [

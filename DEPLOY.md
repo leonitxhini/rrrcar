@@ -1,17 +1,23 @@
-# Vercel & `dist/`
+# Vercel & statisches `dist/`
 
 ## Wichtig
 
-- In **`vercel.json`** ist `outputDirectory: "dist"` und der **Build wird absichtlich übersprungen** (nur `echo`).
-- **Was live geht**, ist **genau der Ordner `dist/` aus dem Git-Commit** – nicht das Ergebnis von `next build`.
-- Änderungen nur in **`app/`** oder **`src/`** ohne aktualisierte Dateien unter **`dist/`** → **auf der Website sichtbar keine Änderung**.
+- **`vercel.json`** setzt **`"framework": null`** → Vercel soll **kein** Next.js-Build erzwingen (sonst wird `dist/` oft ignoriert).
+- **`outputDirectory`** ist **`dist`** → es wird **genau dieser Ordner** aus dem Git-Commit ausgeliefert.
+- **`buildCommand`** = `node scripts/vercel-build.mjs` → prüft nur, dass `dist/index.html` existiert.
 
-## Was du tun musst
+## Wenn sich auf der Website nichts ändert
 
-1. Design/Copy/HTML: **`dist/index.html`** (und ggf. **`dist/fleet/index.html`**) anpassen und **mit committen**.
-2. Push → Vercel lädt **`dist/`** neu hoch.
-3. Nach dem Deploy: Seite **hart neu laden** (Cache), oder privates Fenster testen.
+1. **Vercel Dashboard** → Projekt → **Settings** → **General**:
+   - **Framework Preset** auf **Other** stellen (falls noch „Next.js“ steht).
+   - **Build & Output**: „Override“ für Build Command / Output Directory **aus** oder **gleich** wie in `vercel.json`.
+2. **Deployments** → **⋯** beim letzten Deploy → **Redeploy** → **Clear cache and redeploy**.
+3. **Änderungen nur in `app/` / `src/`** ohne Anpassung von **`dist/`** → Live-Seite (statisch) **ändert sich nicht**.
 
-## Optional (alles aus Next generieren)
+## Lokaler Check
 
-Dann `npm run build` (erzeugt `out/` → Skript kopiert nach `dist/`). Dafür müsste die **gesamte** Seite in Next liegen – aktuell ist die große Landing Page vor allem **statisch in `dist/`**.
+```bash
+node scripts/vercel-build.mjs
+```
+
+Sollte `OK` ausgeben, wenn `dist/index.html` existiert.
