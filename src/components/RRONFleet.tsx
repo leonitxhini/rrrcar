@@ -2,6 +2,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 type Vehicle = {
@@ -129,6 +130,12 @@ const VEHICLES: Vehicle[] = [
   },
 ];
 
+/** Homepage preview — same three highlights as static site (`dist/index.html`). */
+const FLEET_PREVIEW_ORDER = ["audi-a6-2021", "audi-a5-2021", "vw-golf-8"] as const;
+const FLEET_PREVIEW = FLEET_PREVIEW_ORDER.map((id) =>
+  VEHICLES.find((v) => v.id === id),
+).filter((v): v is Vehicle => Boolean(v));
+
 function VehicleCard({
   v,
   onBookNow,
@@ -217,14 +224,25 @@ export default function RRONFleet({ onBookNow, onViewDetails }: RRONFleetProps) 
 
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-6xl px-6 py-16">
-        <div className="max-w-3xl">
-          <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
-            Our Fleet
-          </h2>
-          <p className="mt-3 text-base leading-relaxed text-slate-600">
-            Choose from premium and everyday vehicles for driving across Kosovo, Albania, and the Balkans.
-          </p>
+      <div className="mx-auto max-w-6xl px-6 py-14">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div className="max-w-3xl">
+            <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+              Our Fleet
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-slate-600">
+              A quick preview — see every vehicle and price on the fleet page.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3 sm:justify-end">
+            <Link
+              href="/fleet/"
+              className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 hover:underline"
+            >
+              View full fleet
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
 
         {/* Mobile Swipe (Apple Cards) */}
@@ -253,7 +271,7 @@ export default function RRONFleet({ onBookNow, onViewDetails }: RRONFleetProps) 
             ref={scrollRef}
             className="no-scrollbar mt-4 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory"
           >
-            {VEHICLES.map((v) => (
+            {FLEET_PREVIEW.map((v) => (
               <div key={v.id} className="snap-start w-[86%] max-w-[340px] flex-none">
                 <VehicleCard
                   v={v}
@@ -267,7 +285,7 @@ export default function RRONFleet({ onBookNow, onViewDetails }: RRONFleetProps) 
 
         {/* Desktop Grid */}
         <div className="mt-12 hidden grid-cols-1 gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
-          {VEHICLES.map((v) => (
+          {FLEET_PREVIEW.map((v) => (
             <VehicleCard
               key={v.id}
               v={v}
@@ -275,6 +293,16 @@ export default function RRONFleet({ onBookNow, onViewDetails }: RRONFleetProps) 
               onViewDetails={onViewDetails}
             />
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/fleet/"
+            className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-slate-900 shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
+          >
+            View all vehicles &amp; prices
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>

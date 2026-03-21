@@ -674,11 +674,32 @@
     .how-desc { font-size: 13.5px; color: var(--muted); line-height: 1.7; max-width: 200px; }
 
     /* â”€â”€ FLEET / CARS â”€â”€ */
-    #fleet { background: var(--white); }
+    #fleet { background: var(--white); padding: 56px 0 64px; }
     .fleet-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
+    }
+    .fleet-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .fleet-home-cta {
+      max-width: 1200px;
+      margin: 8px auto 0;
+      padding-left: 40px;
+      padding-right: 40px;
+      text-align: center;
+    }
+    .fleet-home-cta .see-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 700;
     }
     .car-card {
       border-radius: 20px;
@@ -1000,7 +1021,6 @@
       .how-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
       .services-grid { grid-template-columns: repeat(2, 1fr); }
       .loc-grid { grid-template-columns: repeat(2, 1fr); }
-      .testimonials-grid { grid-template-columns: 1fr 1fr; }
       .stat-item { padding: 0 24px; }
     }
 
@@ -1026,10 +1046,7 @@
       section { padding: 44px 0; }
       section.google-rating-strip { padding: 16px 0 !important; }
       .google-rating-inner { padding-left: 16px !important; padding-right: 16px !important; }
-      .google-maps-embed-wrap { padding-left: 16px; padding-right: 16px; }
-      .google-maps-embed-wrap iframe { height: 320px; }
-      .google-reviews-cta-wrap { padding-left: 16px; padding-right: 16px; }
-      .sec-header, .cat-grid, .how-grid, .fleet-grid, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 16px; padding-right: 16px; }
+      .sec-header, .cat-grid, .how-grid, .fleet-grid, .fleet-home-cta, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 16px; padding-right: 16px; }
 
       /* Hero – taller on mobile so image is visible */
       #hero {
@@ -1147,7 +1164,6 @@
 
       /* Sec titles */
       .sec-title { font-size: clamp(20px, 5vw, 30px); }
-      .testimonials-grid { grid-template-columns: 1fr; }
       .stats-inner { flex-wrap: wrap; gap: 8px; padding: 12px 0; }
       .stat-item { flex: 0 0 calc(50% - 8px); padding: 10px 16px; }
       .stat-divider { display: none; }
@@ -1169,7 +1185,7 @@
       .hero-content h1 { font-size: 28px; }
       .booking-bar { margin: 0 8px 16px; }
       section { padding: 36px 0; }
-      .sec-header, .cat-grid, .how-grid, .fleet-grid, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 14px; padding-right: 14px; }
+      .sec-header, .cat-grid, .how-grid, .fleet-grid, .fleet-home-cta, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 14px; padding-right: 14px; }
       .car-card {
         flex: 0 0 92%;
         max-width: 92%;
@@ -1413,11 +1429,14 @@
   </div>
 </section>
 
-<!-- FLEET -->
+<!-- FLEET (homepage preview — full list on /fleet/) -->
 <section id="fleet">
   <div class="sec-header">
     <h2 class="sec-title">Our Fleet</h2>
-    <a href="https://wa.me/38370000000" target="_blank" class="see-all">Book via WhatsApp <i class="fab fa-whatsapp"></i></a>
+    <div class="fleet-header-actions">
+      <a href="/fleet/" class="see-all">View full fleet <i class="fas fa-arrow-right"></i></a>
+      <a href="https://wa.me/38370000000" target="_blank" rel="noopener noreferrer" class="see-all">Book via WhatsApp <i class="fab fa-whatsapp"></i></a>
+    </div>
   </div>
   <div class="fleet-grid" id="fleetGrid">
 
@@ -1469,240 +1488,9 @@
       </div>
     </div>
 
-    <!-- 6. VW Golf 8 Light Grey · €50 -->
-    <div class="car-card">
-      <div class="car-img-wrap"><img src="/cars/vw-golf-8-light-grey.png" alt="VW Golf 8 Light Grey" loading="lazy" /><span class="car-tag">Available</span></div>
-      <div class="car-body">
-        <div class="car-class-label">Compact · 2021 · Light Grey</div>
-        <div class="car-name-big">VW Golf 8</div>
-        <div class="car-specs-row">
-          <span class="car-spec"><i class="fas fa-cog"></i> Automatic</span>
-          <span class="car-spec"><i class="fas fa-gas-pump"></i> Petrol</span>
-          <span class="car-spec"><i class="fas fa-users"></i> 5 seats</span>
-          <span class="car-spec"><i class="fas fa-suitcase"></i> 3 bags</span>
-        </div>
-        <div class="car-footer-row"><div class="car-price-big">€50 <span>/ day</span></div><button class="car-book-btn" onclick="openModal(this)">Book</button></div>
-      </div>
-    </div>
-
-    <!-- 4. Audi A3 2018 Light Grey · €40 -->
-    <div class="car-card">
-      <div class="car-img-wrap"><img src="/cars/audi-a3-2018-light-grey.png" alt="Audi A3 2018 Light Grey" loading="lazy" /><span class="car-tag">Available</span></div>
-      <div class="car-body">
-        <div class="car-class-label">Compact Premium · 2018 · Light Grey</div>
-        <div class="car-name-big">Audi A3</div>
-        <div class="car-specs-row">
-          <span class="car-spec"><i class="fas fa-cog"></i> Automatic</span>
-          <span class="car-spec"><i class="fas fa-gas-pump"></i> Petrol</span>
-          <span class="car-spec"><i class="fas fa-users"></i> 5 seats</span>
-          <span class="car-spec"><i class="fas fa-suitcase"></i> 2 bags</span>
-        </div>
-        <div class="car-footer-row"><div class="car-price-big">€40 <span>/ day</span></div><button class="car-book-btn" onclick="openModal(this)">Book</button></div>
-      </div>
-    </div>
-
-    <!-- 3. Audi A3 2015 Black · €40 -->
-    <div class="car-card">
-      <div class="car-img-wrap"><img src="/cars/audi-a3-2015-black.png" alt="Audi A3 2015 Black" loading="lazy" /><span class="car-tag">Available</span></div>
-      <div class="car-body">
-        <div class="car-class-label">Compact Premium · 2015 · Black</div>
-        <div class="car-name-big">Audi A3</div>
-        <div class="car-specs-row">
-          <span class="car-spec"><i class="fas fa-cog"></i> Automatic</span>
-          <span class="car-spec"><i class="fas fa-gas-pump"></i> Petrol</span>
-          <span class="car-spec"><i class="fas fa-users"></i> 5 seats</span>
-          <span class="car-spec"><i class="fas fa-suitcase"></i> 2 bags</span>
-        </div>
-        <div class="car-footer-row"><div class="car-price-big">€40 <span>/ day</span></div><button class="car-book-btn" onclick="openModal(this)">Book</button></div>
-      </div>
-    </div>
-
-    <!-- 7. VW Golf 7 Black · €35 -->
-    <div class="car-card">
-      <div class="car-img-wrap"><img src="/cars/vw-golf-7-black.png" alt="VW Golf 7 Black" loading="lazy" /><span class="car-tag">Available</span></div>
-      <div class="car-body">
-        <div class="car-class-label">Compact · 2017 · Black</div>
-        <div class="car-name-big">VW Golf 7</div>
-        <div class="car-specs-row">
-          <span class="car-spec"><i class="fas fa-cog"></i> Automatic</span>
-          <span class="car-spec"><i class="fas fa-gas-pump"></i> Diesel</span>
-          <span class="car-spec"><i class="fas fa-users"></i> 5 seats</span>
-          <span class="car-spec"><i class="fas fa-suitcase"></i> 3 bags</span>
-        </div>
-        <div class="car-footer-row"><div class="car-price-big">€35 <span>/ day</span></div><button class="car-book-btn" onclick="openModal(this)">Book</button></div>
-      </div>
-    </div>
-
-    <!-- 8. VW Golf 7 Grey · €35 -->
-    <div class="car-card">
-      <div class="car-img-wrap"><img src="/cars/vw-golf-7-grey.png" alt="VW Golf 7 Grey" loading="lazy" /><span class="car-tag">Available</span></div>
-      <div class="car-body">
-        <div class="car-class-label">Compact · 2017 · Grey</div>
-        <div class="car-name-big">VW Golf 7</div>
-        <div class="car-specs-row">
-          <span class="car-spec"><i class="fas fa-cog"></i> Automatic</span>
-          <span class="car-spec"><i class="fas fa-gas-pump"></i> Diesel</span>
-          <span class="car-spec"><i class="fas fa-users"></i> 5 seats</span>
-          <span class="car-spec"><i class="fas fa-suitcase"></i> 3 bags</span>
-        </div>
-        <div class="car-footer-row"><div class="car-price-big">€35 <span>/ day</span></div><button class="car-book-btn" onclick="openModal(this)">Book</button></div>
-      </div>
-    </div>
-
-    <!-- 9. VW Golf 7 Light Grey · €35 -->
-    <div class="car-card">
-      <div class="car-img-wrap"><img src="/cars/vw-golf-7-light-grey.png" alt="VW Golf 7 Light Grey" loading="lazy" /><span class="car-tag">Available</span></div>
-      <div class="car-body">
-        <div class="car-class-label">Compact · 2017 · Light Grey</div>
-        <div class="car-name-big">VW Golf 7</div>
-        <div class="car-specs-row">
-          <span class="car-spec"><i class="fas fa-cog"></i> Automatic</span>
-          <span class="car-spec"><i class="fas fa-gas-pump"></i> Diesel</span>
-          <span class="car-spec"><i class="fas fa-users"></i> 5 seats</span>
-          <span class="car-spec"><i class="fas fa-suitcase"></i> 3 bags</span>
-        </div>
-        <div class="car-footer-row"><div class="car-price-big">€35 <span>/ day</span></div><button class="car-book-btn" onclick="openModal(this)">Book</button></div>
-      </div>
-    </div>
-
-    <!-- 10. Peugeot 308 2020 Grey · €35 -->
-    <div class="car-card">
-      <div class="car-img-wrap"><img src="/cars/peugeot-308-2020-grey.png" alt="Peugeot 308 2020 Grey" loading="lazy" /><span class="car-tag">Available</span></div>
-      <div class="car-body">
-        <div class="car-class-label">Mid-size · 2020 · Grey</div>
-        <div class="car-name-big">Peugeot 308</div>
-        <div class="car-specs-row">
-          <span class="car-spec"><i class="fas fa-cog"></i> Automatic</span>
-          <span class="car-spec"><i class="fas fa-gas-pump"></i> Diesel</span>
-          <span class="car-spec"><i class="fas fa-users"></i> 5 seats</span>
-          <span class="car-spec"><i class="fas fa-suitcase"></i> 3 bags</span>
-        </div>
-        <div class="car-footer-row"><div class="car-price-big">€35 <span>/ day</span></div><button class="car-book-btn" onclick="openModal(this)">Book</button></div>
-      </div>
-    </div>
-
-    <!-- 11. Peugeot 308 2019 Grey · €35 -->
-    <div class="car-card">
-      <div class="car-img-wrap"><img src="/cars/peugeot-308-2019-grey.png" alt="Peugeot 308 2019 Grey" loading="lazy" /><span class="car-tag">Available</span></div>
-      <div class="car-body">
-        <div class="car-class-label">Mid-size · 2019 · Grey</div>
-        <div class="car-name-big">Peugeot 308</div>
-        <div class="car-specs-row">
-          <span class="car-spec"><i class="fas fa-cog"></i> Automatic</span>
-          <span class="car-spec"><i class="fas fa-gas-pump"></i> Diesel</span>
-          <span class="car-spec"><i class="fas fa-users"></i> 5 seats</span>
-          <span class="car-spec"><i class="fas fa-suitcase"></i> 3 bags</span>
-        </div>
-        <div class="car-footer-row"><div class="car-price-big">€35 <span>/ day</span></div><button class="car-book-btn" onclick="openModal(this)">Book</button></div>
-      </div>
-    </div>
-
-    <!-- 13. Citroën C4 2015 Grey Auto · €30 -->
-    <div class="car-card">
-      <div class="car-img-wrap"><img src="/cars/citroen-c4-2015-grey.png" alt="Citroën C4 2015 Grey" loading="lazy" /><span class="car-tag">Available</span></div>
-      <div class="car-body">
-        <div class="car-class-label">Mid-size · 2015 · Grey</div>
-        <div class="car-name-big">Citroën C4</div>
-        <div class="car-specs-row">
-          <span class="car-spec"><i class="fas fa-cog"></i> Automatic</span>
-          <span class="car-spec"><i class="fas fa-gas-pump"></i> Diesel</span>
-          <span class="car-spec"><i class="fas fa-users"></i> 5 seats</span>
-          <span class="car-spec"><i class="fas fa-suitcase"></i> 3 bags</span>
-        </div>
-        <div class="car-footer-row"><div class="car-price-big">€30 <span>/ day</span></div><button class="car-book-btn" onclick="openModal(this)">Book</button></div>
-      </div>
-    </div>
-
-    <!-- €25 – Peugeot 208 -->
-    <div class="car-card">
-      <div class="car-img-wrap"><img src="/cars/peugeot-208-2016-green.png" alt="Peugeot 208 2016 Green" loading="lazy" /><span class="car-tag">Available</span></div>
-      <div class="car-body">
-        <div class="car-class-label">City Car · 2016 · Green</div>
-        <div class="car-name-big">Peugeot 208</div>
-        <div class="car-specs-row">
-          <span class="car-spec"><i class="fas fa-cog"></i> Manual</span>
-          <span class="car-spec"><i class="fas fa-gas-pump"></i> Petrol</span>
-          <span class="car-spec"><i class="fas fa-users"></i> 5 seats</span>
-          <span class="car-spec"><i class="fas fa-suitcase"></i> 2 bags</span>
-        </div>
-        <div class="car-footer-row"><div class="car-price-big">€25 <span>/ day</span></div><button class="car-book-btn" onclick="openModal(this)">Book</button></div>
-      </div>
-    </div>
-
-    <!-- €25 – Citroën C4 White Manual -->
-    <div class="car-card">
-      <div class="car-img-wrap"><img src="/cars/citroen-c4-2015-white.png" alt="Citroën C4 2015 White" loading="lazy" /><span class="car-tag">Available</span></div>
-      <div class="car-body">
-        <div class="car-class-label">Mid-size · 2015 · White</div>
-        <div class="car-name-big">Citroën C4</div>
-        <div class="car-specs-row">
-          <span class="car-spec"><i class="fas fa-cog"></i> Manual</span>
-          <span class="car-spec"><i class="fas fa-gas-pump"></i> Diesel</span>
-          <span class="car-spec"><i class="fas fa-users"></i> 5 seats</span>
-          <span class="car-spec"><i class="fas fa-suitcase"></i> 3 bags</span>
-        </div>
-        <div class="car-footer-row"><div class="car-price-big">€25 <span>/ day</span></div><button class="car-book-btn" onclick="openModal(this)">Book</button></div>
-      </div>
-    </div>
-
-    <!-- €25 – Ford Fiesta -->
-    <div class="car-card">
-      <div class="car-img-wrap" style="background:linear-gradient(135deg,#1a0a0a,#3a1010);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
-        <i class="fas fa-car" style="font-size:48px;color:rgba(255,255,255,.15);"></i>
-        <span style="font-size:12px;color:rgba(255,255,255,.3);font-weight:600;">Photo coming soon</span>
-        <span class="car-tag">Available</span>
-      </div>
-      <div class="car-body">
-        <div class="car-class-label">City Car · 2017 · Red</div>
-        <div class="car-name-big">Ford Fiesta</div>
-        <div class="car-specs-row">
-          <span class="car-spec"><i class="fas fa-cog"></i> Manual</span>
-          <span class="car-spec"><i class="fas fa-gas-pump"></i> Petrol</span>
-          <span class="car-spec"><i class="fas fa-users"></i> 5 seats</span>
-          <span class="car-spec"><i class="fas fa-suitcase"></i> 2 bags</span>
-        </div>
-        <div class="car-footer-row"><div class="car-price-big">€25 <span>/ day</span></div><button class="car-book-btn" onclick="openModal(this)">Book</button></div>
-      </div>
-    </div>
-
   </div>
-  </div>
-</section>
-
-<!-- GOOGLE REVIEWS (after Our Fleet) — live map + link to original reviews on Google -->
-<section id="google-reviews" class="google-reviews-section">
-  <div class="section-label-wrap" style="text-align:center;">
-    <span class="section-eyebrow">Verified on Google</span>
-    <h2 class="sec-title">Google Reviews</h2>
-    <div class="google-reviews-summary-bar" aria-label="Google rating summary">
-      <i class="fab fa-google" aria-hidden="true"></i>
-      <span class="google-reviews-rating-num">5.0</span>
-      <span class="google-review-stars-sm" aria-hidden="true">
-        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-      </span>
-      <span class="google-reviews-count">· 21 reviews · Rent A Car – RRON, Ferizaj</span>
-    </div>
-    <p class="google-reviews-intro">
-      Read the <strong>original reviews</strong> on Google Maps. The map below shows the official listing — open it in Google to read every review in full.
-    </p>
-  </div>
-  <div class="google-maps-embed-wrap">
-    <!-- Official listing: place_id ChIJzRvWjsp_VBMR05_lAniKJOg — Google’s supported embed (?q=…&output=embed). To use Share → Embed “pb=” code instead, replace src below. -->
-    <iframe
-      title="Rent A Car – RRON, Emin Duraku — Google Maps"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.google.com/maps?q=Rent+A+Car+RRON+Ferizaj&output=embed&hl=en&z=17"
-      allowfullscreen
-    ></iframe>
-  </div>
-  <div class="google-reviews-cta-wrap">
-    <a
-      href="https://www.google.com/maps/search/?api=1&query=Rent+A+Car+-+RRON&query_place_id=ChIJzRvWjsp_VBMR05_lAniKJOg&hl=en"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="see-all"
-    >Open all reviews on Google <i class="fas fa-arrow-right"></i></a>
+  <div class="fleet-home-cta">
+    <a href="/fleet/" class="see-all">View all vehicles &amp; prices <i class="fas fa-arrow-right"></i></a>
   </div>
 </section>
 
