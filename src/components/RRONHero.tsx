@@ -22,21 +22,21 @@ const fieldShell =
 export default function RRONHero({
   pickupPlaceholder = "Pick-up location",
   dropoffPlaceholder = "Drop-off location",
-  carBackgroundSrc = "/hero.png?v=10",
+  carBackgroundSrc = "/hero.png?v=11",
 }: RRONHeroProps) {
   return (
     <section className="relative overflow-x-clip overflow-y-visible bg-[#06080f]">
-      {/* Vollständiges Motiv (contain) — Logo im Bild bleibt sichtbar */}
+      {/* contain + unter Navbar; Desktop leicht verkleinert */}
       <div className="absolute inset-0">
         <div
-          className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+          className="pointer-events-none absolute inset-x-0 bottom-0 top-[68px] z-0 overflow-hidden md:top-[86px]"
           aria-hidden="true"
         >
           <img
             src={carBackgroundSrc}
             alt=""
             aria-hidden="true"
-            className="h-full w-full object-contain object-center"
+            className="h-full w-full origin-center object-contain object-center md:scale-[0.86]"
             loading="eager"
             decoding="async"
           />

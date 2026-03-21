@@ -154,7 +154,10 @@
     }
     .hero-bg-clip {
       position: absolute;
-      inset: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 68px;
       z-index: 0;
       overflow: hidden;
       pointer-events: none;
@@ -162,7 +165,7 @@
     .hero-img {
       position: absolute;
       inset: 0;
-      background: url('/hero.png?v=10') center center / contain no-repeat;
+      background: url('/hero.png?v=11') center center / contain no-repeat;
       opacity: 1;
       image-rendering: -webkit-optimize-contrast;
     }
@@ -174,6 +177,13 @@
         linear-gradient(to top, rgba(4,6,12,.88) 0%, transparent 55%);
     }
     @media (min-width: 769px) {
+      .hero-bg-clip {
+        top: 86px;
+      }
+      .hero-img {
+        transform: scale(0.86);
+        transform-origin: center center;
+      }
       .hero-overlay {
         background:
           linear-gradient(to right, rgba(4,6,12,.78) 0%, rgba(5,8,22,.62) 48%, rgba(5,8,22,.32) 100%),
