@@ -331,6 +331,80 @@
       width: 1px; height: 36px; background: #eef0f6; flex-shrink: 0;
     }
 
+    /* â”€â”€ GOOGLE BEWERTUNG (Maps) â”€â”€ */
+    .google-rating-strip {
+      background: linear-gradient(180deg, #0a0f1f 0%, #0f172a 100%);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding: 20px 16px;
+    }
+    .google-rating-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    .google-rating-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 100%;
+      padding: 16px 22px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      text-decoration: none;
+      color: #fff;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .google-rating-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(59,110,245,.4);
+      box-shadow: 0 16px 48px rgba(0,0,0,.28);
+    }
+    .google-rating-card .g-icon {
+      font-size: 28px;
+      color: #4285f4;
+      line-height: 1;
+    }
+    .google-rating-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .google-rating-score {
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+    .google-rating-stars {
+      color: #fbbc04;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+    }
+    .google-rating-stars i { font-size: 0.78rem; }
+    .google-rating-meta {
+      margin-top: 4px;
+      font-size: 13px;
+      color: rgba(255,255,255,.58);
+      line-height: 1.45;
+    }
+    .google-rating-cta {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--blue);
+      white-space: nowrap;
+    }
+    .google-rating-card:hover .google-rating-cta { text-decoration: underline; }
+    section.google-rating-strip {
+      padding: 20px 0 !important;
+    }
+
     /* â”€â”€ SECTIONS COMMON â”€â”€ */
     section { padding: 80px 0; }
     .section-inner,
@@ -884,6 +958,8 @@
 
       /* Sections */
       section { padding: 44px 0; }
+      section.google-rating-strip { padding: 16px 0 !important; }
+      .google-rating-inner { padding-left: 16px !important; padding-right: 16px !important; }
       .sec-header, .cat-grid, .how-grid, .fleet-grid, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 16px; padding-right: 16px; }
 
       /* Hero – taller on mobile so image is visible */
@@ -1190,6 +1266,30 @@
     <button class="booking-search-btn" onclick="doSearch()">
       <i class="fas fa-search"></i> Search
     </button>
+  </div>
+</section>
+
+<!-- GOOGLE BEWERTUNG (Rent A Car – RRON, Ferizaj) -->
+<section class="google-rating-strip" aria-label="Google Bewertungen">
+  <div class="google-rating-inner">
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=Rent+A+Car+RRON+Ferizaj"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="google-rating-card"
+    >
+      <i class="fab fa-google g-icon" aria-hidden="true"></i>
+      <div>
+        <div class="google-rating-top">
+          <span class="google-rating-score">5,0</span>
+          <span class="google-rating-stars" aria-hidden="true">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </span>
+        </div>
+        <div class="google-rating-meta">Google · 21 Rezensionen · Rent A Car – RRON, Ferizaj</div>
+      </div>
+      <span class="google-rating-cta">Rezensionen ansehen →</span>
+    </a>
   </div>
 </section>
 
