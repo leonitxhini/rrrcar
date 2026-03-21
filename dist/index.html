@@ -145,10 +145,10 @@
       justify-content: flex-start;
       padding: 96px 0 40px;
     }
-    /* Hintergrund: bei flachem Hero schneidet „cover“ oft oben ab → Desktop: oben ausrichten (Branding im Motiv) */
+    /* Desktop: nicht „top“ — sonst sitzt das Motiv-Branding zu tief/hinter der Bar; ~38% zentriert den sichtbaren Bereich besser */
     .hero-img {
       position: absolute; inset: 0;
-      background: url('/hero.png?v=7') center center / cover no-repeat;
+      background: url('/hero.png?v=8') center center / cover no-repeat;
       opacity: 1;
       image-rendering: -webkit-optimize-contrast;
     }
@@ -160,7 +160,7 @@
     }
     @media (min-width: 769px) {
       .hero-img {
-        background-position: center top;
+        background-position: center 38%;
       }
       /* Overlay etwas transparenter, damit Logo/Text im hero.png durchscheint */
       .hero-overlay {

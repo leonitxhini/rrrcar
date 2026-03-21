@@ -22,7 +22,7 @@ const fieldShell =
 export default function RRONHero({
   pickupPlaceholder = "Pick-up location",
   dropoffPlaceholder = "Drop-off location",
-  carBackgroundSrc = "/hero.png?v=7",
+  carBackgroundSrc = "/hero.png?v=8",
 }: RRONHeroProps) {
   return (
     <section className="relative overflow-x-clip overflow-y-visible bg-[#06080f]">
@@ -32,7 +32,7 @@ export default function RRONHero({
           src={carBackgroundSrc}
           alt=""
           aria-hidden="true"
-          className="h-full w-full object-cover object-center md:object-top"
+          className="h-full w-full object-cover object-center md:object-[center_38%]"
           loading="eager"
           decoding="async"
         />
