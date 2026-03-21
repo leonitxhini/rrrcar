@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -502,53 +502,6 @@
       white-space: nowrap;
     }
     .see-all:hover { text-decoration: underline; }
-
-    /* â”€â”€ CAR CATEGORY â”€â”€ */
-    #categories { background: var(--white); }
-    .cat-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-    .cat-card {
-      border-radius: 18px; overflow: hidden;
-      position: relative; cursor: pointer;
-      aspect-ratio: 1/1;
-      background: #111;
-      transition: transform .3s, box-shadow .3s;
-      box-shadow: 0 2px 12px rgba(0,0,0,.07);
-    }
-    .cat-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(0,0,0,.14); }
-    .cat-card img {
-      width: 100%; height: 100%; object-fit: cover;
-      display: block; transition: transform .45s;
-    }
-    .cat-card:hover img { transform: scale(1.05); }
-    .cat-card-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(160deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.05) 60%);
-    }
-    .cat-card-content {
-      position: absolute; inset: 0;
-      padding: 16px;
-      display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .cat-card-name {
-      font-size: 18px; font-weight: 800; color: #fff;
-      line-height: 1.2; letter-spacing: -.2px;
-      text-shadow: 0 1px 6px rgba(0,0,0,.4);
-    }
-    .cat-arrow {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: rgba(255,255,255,.22);
-      backdrop-filter: blur(8px);
-      border: 1.5px solid rgba(255,255,255,.5);
-      color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; align-self: flex-end;
-      transition: background .2s, transform .2s;
-    }
-    .cat-card:hover .cat-arrow { background: var(--blue); border-color: var(--blue); transform: rotate(45deg); }
 
     /* â”€â”€ TREND VEHICLES â”€â”€ */
     #trend { background: var(--light); }
@@ -1125,7 +1078,6 @@
         z-index: 200;
       }
 
-      /* Car Category */
       .cat-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .cat-card-name { font-size: 14px; }
       .cat-arrow { width: 28px; height: 28px; font-size: 11px; }
@@ -1355,80 +1307,6 @@
 </section>
 
 
-<!-- CAR CATEGORY -->
-<section id="categories">
-  <div class="sec-header">
-    <h2 class="sec-title">Car Category</h2>
-    <a href="/fleet/" class="see-all">See all <i class="fas fa-arrow-right"></i></a>
-  </div>
-  <div class="cat-grid">
-    <div class="cat-card" onclick="document.getElementById('fleet').scrollIntoView({behavior:'smooth'})">
-      <img src="/cars/audi-a6-2021-white.png" alt="Audi" loading="lazy" />
-      <div class="cat-card-overlay"></div>
-      <div class="cat-card-content">
-        <span class="cat-card-name">Audi</span>
-        <span class="cat-arrow"><i class="fas fa-arrow-right"></i></span>
-      </div>
-    </div>
-    <div class="cat-card" onclick="document.getElementById('fleet').scrollIntoView({behavior:'smooth'})">
-      <img src="/cars/vw-golf-8-black.png" alt="VW Golf" loading="lazy" />
-      <div class="cat-card-overlay"></div>
-      <div class="cat-card-content">
-        <span class="cat-card-name">VW Golf</span>
-        <span class="cat-arrow"><i class="fas fa-arrow-right"></i></span>
-      </div>
-    </div>
-    <div class="cat-card" onclick="document.getElementById('fleet').scrollIntoView({behavior:'smooth'})">
-      <img src="/cars/peugeot-308-2020-grey.png" alt="Peugeot" loading="lazy" />
-      <div class="cat-card-overlay"></div>
-      <div class="cat-card-content">
-        <span class="cat-card-name">Peugeot</span>
-        <span class="cat-arrow"><i class="fas fa-arrow-right"></i></span>
-      </div>
-    </div>
-    <div class="cat-card" onclick="document.getElementById('fleet').scrollIntoView({behavior:'smooth'})">
-      <img src="/cars/audi-a5-2021-dark-blue.png" alt="Premium" loading="lazy" />
-      <div class="cat-card-overlay"></div>
-      <div class="cat-card-content">
-        <span class="cat-card-name">Premium</span>
-        <span class="cat-arrow"><i class="fas fa-arrow-right"></i></span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- HOW IT WORKS -->
-<section id="how">
-  <h2 class="sec-title" style="text-align:center;margin-bottom:48px;">How it works</h2>
-  <div class="how-grid" style="text-align:center;">
-    <div class="how-item" style="align-items:center;">
-      <div class="how-num">STEP 01</div>
-      <div class="how-icon"><i class="fas fa-car"></i></div>
-      <div class="how-title">Choose a Vehicle</div>
-      <div class="how-desc">Browse our fleet and pick the car that best suits your needs and budget.</div>
-    </div>
-    <div class="how-item" style="align-items:center;">
-      <div class="how-num">STEP 02</div>
-      <div class="how-icon"><i class="fas fa-calendar-check"></i></div>
-      <div class="how-title">Pick Date & Location</div>
-      <div class="how-desc">Select your preferred pick-up and drop-off dates and one of our locations.</div>
-    </div>
-    <div class="how-item" style="align-items:center;">
-      <div class="how-num">STEP 03</div>
-      <div class="how-icon"><i class="fas fa-paper-plane"></i></div>
-      <div class="how-title">Send a Request</div>
-      <div class="how-desc">Submit your booking request – we confirm within a few hours via WhatsApp or email.</div>
-    </div>
-    <div class="how-item" style="align-items:center;">
-      <div class="how-num">STEP 04</div>
-      <div class="how-icon"><i class="fas fa-key"></i></div>
-      <div class="how-title">Pick Up Your Keys</div>
-      <div class="how-desc">Collect the car at the agreed location and enjoy your drive.</div>
-    </div>
-  </div>
-</section>
-
 <!-- FLEET (homepage preview — full list on /fleet/) -->
 <section id="fleet">
   <div class="sec-header">
@@ -1491,6 +1369,38 @@
   </div>
   <div class="fleet-home-cta">
     <a href="/fleet/" class="see-all">View all vehicles &amp; prices <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <h2 class="sec-title" style="text-align:center;margin-bottom:48px;">How it works</h2>
+  <div class="how-grid" style="text-align:center;">
+    <div class="how-item" style="align-items:center;">
+      <div class="how-num">STEP 01</div>
+      <div class="how-icon"><i class="fas fa-car"></i></div>
+      <div class="how-title">Choose a Vehicle</div>
+      <div class="how-desc">Browse our fleet and pick the car that best suits your needs and budget.</div>
+    </div>
+    <div class="how-item" style="align-items:center;">
+      <div class="how-num">STEP 02</div>
+      <div class="how-icon"><i class="fas fa-calendar-check"></i></div>
+      <div class="how-title">Pick Date & Location</div>
+      <div class="how-desc">Select your preferred pick-up and drop-off dates and one of our locations.</div>
+    </div>
+    <div class="how-item" style="align-items:center;">
+      <div class="how-num">STEP 03</div>
+      <div class="how-icon"><i class="fas fa-paper-plane"></i></div>
+      <div class="how-title">Send a Request</div>
+      <div class="how-desc">Submit your booking request – we confirm within a few hours via WhatsApp or email.</div>
+    </div>
+    <div class="how-item" style="align-items:center;">
+      <div class="how-num">STEP 04</div>
+      <div class="how-icon"><i class="fas fa-key"></i></div>
+      <div class="how-title">Pick Up Your Keys</div>
+      <div class="how-desc">Collect the car at the agreed location and enjoy your drive.</div>
+    </div>
   </div>
 </section>
 
@@ -1821,7 +1731,7 @@
     const navbar = document.getElementById('navbar');
     navbar.classList.toggle('scrolled', window.scrollY > 60);
 
-    const sections = ['hero','categories','fleet','services','locations','faq','contact'];
+    const sections = ['hero','fleet','how','services','locations','faq','contact'];
     let current = 'hero';
     sections.forEach(id => {
       const el = document.getElementById(id);
@@ -1843,7 +1753,7 @@
       }
     });
   }, { threshold: 0.08 });
-  document.querySelectorAll('.car-card, .svc-card, .loc-card, .cat-card, .how-item').forEach(el => {
+  document.querySelectorAll('.car-card, .svc-card, .loc-card, .how-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(24px)';
     el.style.transition = 'opacity .45s ease, transform .45s ease';
