@@ -131,13 +131,12 @@
       position: relative;
       overflow-x: clip;
       overflow-y: visible;
-      min-height: 100vh;
-      min-height: 100svh;
+      min-height: 0;
       background: #06080f;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 96px 0 48px;
+      justify-content: flex-start;
+      padding: 96px 0 40px;
     }
     .hero-img {
       position: absolute; inset: 0;
@@ -1466,10 +1465,10 @@
       .google-rating-inner { padding-left: 16px !important; padding-right: 16px !important; }
       .sec-header, .cat-grid, .how-grid, .fleet-grid, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 16px; padding-right: 16px; }
 
-      /* Hero – mobile stack */
+      /* Hero – mobile kompakt */
       #hero {
-        min-height: 100svh;
-        padding: max(120px, calc(env(safe-area-inset-top, 0px) + 100px)) 0 32px;
+        min-height: 0;
+        padding: max(120px, calc(env(safe-area-inset-top, 0px) + 100px)) 0 28px;
         justify-content: flex-start;
       }
       .hero-overlay {

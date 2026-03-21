@@ -122,13 +122,13 @@
       /* Kein overflow:hidden — sonst wirkt der Glas-Rahmen abgeschnitten, wenn die Bar zu breit wird */
       overflow-x: clip;
       overflow-y: visible;
-      min-height: 100vh;
-      min-height: 100svh;
+      /* Kompakter Hero: nur so hoch wie Inhalt — Fleet folgt direkt darunter */
+      min-height: 0;
       background: #06080f;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 96px 0 48px;
+      justify-content: flex-start;
+      padding: 96px 0 40px;
     }
     .hero-img {
       position: absolute; inset: 0;
@@ -1104,10 +1104,10 @@
       .google-reviews-cta-wrap { padding-left: 16px; padding-right: 16px; }
       .sec-header, .cat-grid, .how-grid, .fleet-grid, .fleet-home-cta, .services-grid, .loc-grid, .sec-title, .section-label-wrap { padding-left: 16px; padding-right: 16px; }
 
-      /* Hero – mobile stack (genug Abstand zur fixen Navbar / Logo) */
+      /* Hero – mobil kompakt (kein Vollbild-Zwang) */
       #hero {
-        min-height: 100svh;
-        padding: max(120px, calc(env(safe-area-inset-top, 0px) + 100px)) 0 32px;
+        min-height: 0;
+        padding: max(120px, calc(env(safe-area-inset-top, 0px) + 100px)) 0 28px;
         justify-content: flex-start;
       }
       .hero-overlay {

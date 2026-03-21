@@ -25,7 +25,7 @@ export default function RRONHero({
   carBackgroundSrc = "/hero.png?v=3",
 }: RRONHeroProps) {
   return (
-    <section className="relative min-h-[100svh] overflow-x-clip overflow-y-visible bg-[#06080f]">
+    <section className="relative overflow-x-clip overflow-y-visible bg-[#06080f]">
       {/* Background */}
       <div className="absolute inset-0">
         <img
@@ -46,8 +46,8 @@ export default function RRONHero({
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1280px] flex-col px-5 pb-12 pt-[max(7.5rem,calc(env(safe-area-inset-top,0px)+5.5rem))] sm:px-6 sm:pt-28 lg:pb-16 lg:pt-32">
-        <div className="grid flex-1 items-center gap-10">
+      <div className="relative z-10 mx-auto flex max-w-[1280px] flex-col px-5 pb-10 pt-[max(7.5rem,calc(env(safe-area-inset-top,0px)+5.5rem))] sm:px-6 sm:pb-12 sm:pt-28 lg:pb-14 lg:pt-32">
+        <div className="grid gap-10">
           {/* Copy + trust + booking (single column — no right image card) */}
           <div className="flex flex-col justify-center">
             <h1 className="text-[clamp(2.25rem,5.5vw,3.75rem)] font-black leading-[1.05] tracking-tight text-white">
