@@ -76,10 +76,15 @@
       text-decoration: none;
       display: flex; align-items: center;
       flex-shrink: 0;
+      min-width: max-content;
     }
     .nav-logo img {
-      height: 46px; width: auto;
+      height: 46px;
+      width: auto;
+      max-width: none; /* wichtig: globales *{max-width:100%} sonst Logo in Flex oft 0px breit (Desktop) */
       object-fit: contain;
+      display: block;
+      flex-shrink: 0;
     }
     .nav-links {
       display: flex; gap: 32px; list-style: none;
@@ -1089,7 +1094,7 @@
       }
       .nav-links, .nav-search, .nav-avatar { display: none; }
       .nav-hamburger { display: flex; }
-      .nav-logo img { height: 34px; }
+      .nav-logo img { height: 34px; max-width: none; }
 
       /* Mobile Menu */
       .mob-menu { top: 72px; width: calc(100% - 24px); }
