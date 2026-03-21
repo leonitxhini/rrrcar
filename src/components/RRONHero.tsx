@@ -25,7 +25,7 @@ export default function RRONHero({
   carBackgroundSrc = "/hero.png?v=3",
 }: RRONHeroProps) {
   return (
-    <section className="relative min-h-[100svh] overflow-hidden bg-[#06080f]">
+    <section className="relative min-h-[100svh] overflow-x-clip overflow-y-visible bg-[#06080f]">
       {/* Background */}
       <div className="absolute inset-0">
         <img
@@ -46,7 +46,7 @@ export default function RRONHero({
         />
       </div>
 
-      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1280px] flex-col px-5 pb-12 pt-24 sm:px-6 sm:pt-28 lg:pb-16 lg:pt-32">
+      <div className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1280px] flex-col px-5 pb-12 pt-[max(7.5rem,calc(env(safe-area-inset-top,0px)+5.5rem))] sm:px-6 sm:pt-28 lg:pb-16 lg:pt-32">
         <div className="grid flex-1 items-center gap-10">
           {/* Copy + trust + booking (single column — no right image card) */}
           <div className="flex flex-col justify-center">
@@ -76,7 +76,7 @@ export default function RRONHero({
             </div>
 
             {/* Booking bar — floating glass, max width, integrated */}
-            <div className="mt-8 w-full max-w-[640px]">
+            <div className="mt-10 w-full max-w-[960px]">
               <div
                 className="rounded-[28px] border border-white/18 bg-white/[0.08] p-4 shadow-[0_20px_60px_-12px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.06)_inset] backdrop-blur-2xl sm:p-5"
                 role="search"
